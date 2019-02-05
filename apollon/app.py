@@ -19,8 +19,15 @@ def main():
     return render_template("index.html", form=None)
 
 
+@app.route("/report")
+def r():
+    type = request.args.get("type")
+    template = type + ".html"
+    return render_template(template, form=None)
+
+
 @app.route("/generate", methods=["POST", "GET"])
 def generate():
     form = request.form
     s1, s2 = create(request.form)
-    return render_template("index.html", form=form, s1=s1, s2=s2)
+    return render_template("prostate.html", form=form, s1=s1, s2=s2)
