@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Apollon - The Report Generator!</title>
+    <title>Apollon - smart reporting</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.2/css/bulma.min.css">
     <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
 </head>
@@ -13,26 +13,28 @@
     <section class="section">
         <div class="container">
             <h1 class="title">Apollon</h1>
-            <p class="subtitle">The Report Generator!</p>
+            <p class="subtitle">smart reporting</p>
         </div>
         <div class="section container">
             <h1 class="title">Prostatakarzinom</h1>
             <form class="form-horizontal" action="/generate" method="POST">
-
+                <input type="hidden" value="prostate" name="report_type">
                 <div class="field is-horizontal">
                     <div class="field-label is-normal">
-                        <label class="label">Gleason (X+Y)</label>
+                        <label class="label">Gleason
+
+                        </label>
                     </div>
                     <div class="field-body">
                         <div class="field">
                             <p class="control">
-                                <input class="input" type="number" name="gleason_x" value="{{form['gleason_x']}}"
+                                <input class="input" type="number" placeholder="häufigste" name="gleason_x" value="{{form['gleason_x']}}"
                                     required>
                             </p>
                         </div>
                         <div class="field">
                             <p class="control">
-                                <input class="input" type="number" name="gleason_y" value="{{form['gleason_y']}}">
+                                <input class="input" type="number" placeholder="2. häufigste" name="gleason_y" value="{{form['gleason_y']}}">
                             </p>
                         </div>
                     </div>
@@ -72,7 +74,7 @@
                     <div class="field-body">
                         <div class="field">
                             <div class="control">
-                                <input class="input" type="number" name="durchmesser" value="{{form['durchmesser']}}">
+                                <input class="input" type="number" placeholder="mm" name="durchmesser" value="{{form['durchmesser']}}">
                             </div>
                         </div>
                     </div>
@@ -81,17 +83,17 @@
 
                 <div class="field is-horizontal">
                     <div class="field-label is-normal">
-                        <label class="label">Lymphknoten (X/Y)</label>
+                        <label class="label">Lymphknoten</label>
                     </div>
                     <div class="field-body">
                         <div class="field">
                             <p class="control">
-                                <input class="input" type="text" name="lymphknoten_x" value="{{form['lymphknoten_x']}}">
+                                <input class="input" type="text" placeholder="positiv" name="lymphknoten_x" value="{{form['lymphknoten_x']}}">
                             </p>
                         </div>
                         <div class="field">
                             <p class="control">
-                                <input class="input " type="text" name="lymphknoten_y" value="{{form['lymphknoten_y']}}">
+                                <input class="input " type="text" placeholder="negativ" name="lymphknoten_y" value="{{form['lymphknoten_y']}}">
                             </p>
                         </div>
                     </div>
@@ -118,12 +120,12 @@
 
                 <div class="field is-horizontal">
                     <div class="field-label is-normal">
-                        <label class="label">Min. Abstand RR Wo/Infiltration W0?</label>
+                        <label class="label">Lokalisation Mindestabstand / Infiltration</label>
                     </div>
                     <div class="field-body">
                         <div class="field">
                             <div class="control">
-                                <input class="input" type="number" name="rr_wo" value="{{form['rr_wo']}}">
+                                <input class="input" type="number" placeholder="dorsolateral rechts" name="rr_wo" value="{{form['rr_wo']}}">
                             </div>
                         </div>
                     </div>
@@ -132,12 +134,12 @@
 
                 <div class="field is-horizontal">
                     <div class="field-label is-normal">
-                        <label class="label">Min. Abstand RR mm/Infiltrationsstrecke</label>
+                        <label class="label">Mindestabstand / Infiltrationsstrecke</label>
                     </div>
                     <div class="field-body">
                         <div class="field">
                             <div class="control">
-                                <input class="input" type="number" name="rr_strecke" value="{{form['rr_strecke']}}">
+                                <input class="input" type="number" placeholder="4 mm" name="rr_strecke" value="{{form['rr_strecke']}}">
                             </div>
                         </div>
                     </div>

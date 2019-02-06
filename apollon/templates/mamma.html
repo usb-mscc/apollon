@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Apollon - smart reporting</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.2/css/bulma.min.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+</head>
+
+<body>
+    <section class="section">
+        <div class="container">
+            <h1 class="title">Apollon</h1>
+            <p class="subtitle">smart reporting</p>
+        </div>
+        <div class="section container">
+            <h1 class="title">Mammakarzinom</h1>
+            <form class="form-horizontal" action="/generate" method="POST">
+                <input type="hidden" value="mamma" name="report_type">
+                <h2 class="subtitle">1. Invasives Karzinom</h2>
+                
+                <div class="field is-horizontal">
+                        <div class="field-label">
+                            <label class="label">Seite</label>
+                        </div>
+                        <div class="field-body">
+                            <div class="field is-narrow">
+                                <div class="control">
+                                    <label class="radio">
+                                        <input type="radio" name="lappen" value="links" {% if form['lappen']=='links' %}
+                                            checked {% endif %}>
+                                        Links
+                                    </label>
+                                    <label class="radio">
+                                        <input type="radio" name="lappen" value="rechts" {% if form['lappen']=='rechts' %}
+                                            checked {% endif %}>
+                                        Rechts
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                </div>
+
+                <div class="field is-horizontal">
+                        <div class="field-label">
+                            <label class="label">Type</label>
+                        </div>
+                        <div class="field-body">
+                            <div class="field is-narrow">
+                                <div class="control">
+                                    <label class="radio">
+                                        <input type="radio" name="lappen" value="ductal" {% if form['lappen']=='links' %}
+                                            checked {% endif %}>
+                                        Duktal
+                                    </label>
+                                    <label class="radio">
+                                        <input type="radio" name="lappen" value="lobular" {% if form['lappen']=='rechts' %}
+                                            checked {% endif %}>
+                                        Lobulär
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                </div>
+                
+                <div class="field is-horizontal">
+                    <div class="field-label is-normal">
+                        <label class="label">BRE-Score</label>
+                    </div>
+                    <div class="field-body">
+                        <div class="field">
+                            <p class="control">
+                                <input class="input" type="number" placeholder="tubule formation <10 / 10-75 / >75" name="tubform" value="{{form['tubform']}}"
+                                    required>
+                            </p>
+                        </div>
+                        <div class="field">
+                            <p class="control">
+                                <input class="input" type="number" placeholder="Kernpleomorphie" name="kernpleo" value="{{form['kernpleo']}}">
+                            </p>
+                        </div>
+                        <div class="field">
+                            <p class="control">
+                                <input class="input" type="number" placeholder="Mitosis 10HPF <10 / 10-20 / >20" name="mitosis" value="{{form['mitosis']}}">
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                
+
+                <div class="field is-horizontal">
+                    <div class="field-label is-normal">
+                        <label class="label">Durchmesser</label>
+                    </div>
+                    <div class="field-body">
+                        <div class="field">
+                            <div class="control">
+                                <input class="input" type="number" placeholder="mm" name="durchmesser" value="{{form['durchmesser']}}">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="field is-horizontal">
+                    <div class="field-label is-normal">
+                        <label class="label">Abstand RR</label>
+                    </div>
+                    <div class="field-body">
+                        <div class="field">
+                            <p class="control">
+                                <input class="input" type="number" placeholder="cranial: >5" name="" value="{{form['tubform']}}">
+                                    <required>
+                            </p>
+                        </div>
+                        <div class="field">
+                                <p class="control">
+                                    <input class="input" type="number" placeholder="caudal: >5" name="tubform" value="{{form['tubform']}}">
+                                        <required>
+                                </p>
+                        </div>
+                        <div class="field">
+                                <p class="control">
+                                    <input class="input" type="number" placeholder="medial: >5" name="tubform" value="{{form['tubform']}}">
+                                        <required>
+                                </p>
+                        </div>
+                        <div class="field">
+                                <p class="control">
+                                    <input class="input" type="number" placeholder="lateral: >5" name="tubform" value="{{form['tubform']}}">
+                                        <required>
+                                </p>
+                        </div>   
+                        <div class="field">
+                                <p class="control">
+                                    <input class="input" type="number" placeholder="dorsal: >5" name="tubform" value="{{form['tubform']}}">
+                                        <required>
+                                </p>
+                        </div>
+                        <div class="field">
+                                <p class="control">
+                                    <input class="input" type="number" placeholder="ventral: >5" name="tubform" value="{{form['tubform']}}">
+                                        <required>
+                                </p>
+                        </div>          
+                    </div>
+                </div>
+
+                <h2 class="subtitle">2. Duktal carcinoma in situ (DCIS)</h2>
+
+                <div class="field is-horizontal">
+                        <div class="field-label">
+                            <label class="label">Ausmaß</label>
+                        </div>
+                        <div class="field-body">
+                            <div class="field is-narrow">
+                                <div class="control">
+                                    <label class="radio">
+                                        <input type="radio" name="lappen" value="Wenig" {% if form['lappen']=='links' %}
+                                            checked {% endif %}>
+                                        Wenig
+                                    </label>
+                                    <label class="radio">
+                                        <input type="radio" name="lappen" value="Mässig " {% if form['lappen']=='rechts' %}
+                                            checked {% endif %}>
+                                        Mässig
+                                    </label>
+                                    <label class="radio">
+                                            <input type="radio" name="lappen" value="Extensiv " {% if form['lappen']=='rechts' %}
+                                                checked {% endif %}>
+                                        Extensiv
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                </div>
+
+                <div class="field is-horizontal">
+                        <div class="field-label">
+                            <label class="label">Lokalisation</label>
+                        </div>
+                        <div class="field-body">
+                            <div class="field is-narrow">
+                                <div class="control">
+                                    <label class="radio">
+                                        <input type="radio" name="lappen" value="Intratumor" {% if form['lappen']=='links' %}
+                                            checked {% endif %}>
+                                        Intratumoral
+                                    </label>
+                                    <label class="radio">
+                                        <input type="radio" name="lappen" value="Peritumoral" {% if form['lappen']=='rechts' %}
+                                            checked {% endif %}>
+                                        Peritumoral
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                </div>
+
+                <div class="field is-horizontal">
+                        <div class="field-label">
+                            <label class="label">Grading</label>
+                        </div>
+                        <div class="field-body">
+                            <div class="field is-narrow">
+                                <div class="control">
+                                    <label class="radio">
+                                        <input type="radio" name="lappen" value="G1" {% if form['lappen']=='links' %}
+                                            checked {% endif %}>
+                                        G1
+                                    </label>
+                                    <label class="radio">
+                                        <input type="radio" name="lappen" value="G2" {% if form['lappen']=='rechts' %}
+                                            checked {% endif %}>
+                                        G2
+                                    </label>
+                                    <label class="radio">
+                                            <input type="radio" name="lappen" value="G3" {% if form['lappen']=='rechts' %}
+                                                checked {% endif %}>
+                                        G3
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                </div>
+
+                <div class="field is-horizontal">
+                        <div class="field-label">
+                            <label class="label">Wachstumsmuster</label>
+                        </div>
+                        <div class="field-body">
+                            <div class="field">
+                                <div class="control">
+                                    <label class="checkbox">
+                                        <input type="checkbox" name="lymphangiose" {% if form['lymphangiose'] %} checked {%
+                                            endif %}>
+                                        Kribriform
+                                    </label>
+                                    <label class="checkbox">
+                                        <input type="checkbox" name="haengiose" {% if form['haengiose'] %} checked {% endif
+                                            %}>
+                                        Solide
+                                    </label>
+                                    <label class="checkbox">
+                                        <input type="checkbox" name="perineuralscheideninfiltration" {% if
+                                            form['perineuralscheideninfiltration'] %} checked {% endif %}>
+                                        Papillär
+                                    </label>
+                                    <label class="checkbox">
+                                        <input type="checkbox" name="tumorfreie_sabla" {% if form['tumorfreie_sabla'] %}
+                                            checked {% endif %}>
+                                        Mikropapillär
+                                    </label>
+                                    <label class="checkbox">
+                                        <input type="checkbox" name="extraprostatisches_wachstum" {% if
+                                            form['extraprostatisches_wachstum'] %} checked {% endif %}>
+                                        Comedonekrosen
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="field is-horizontal">
+                            <div class="field-label is-normal">
+                                <label class="label">Abstand RR</label>
+                            </div>
+                            <div class="field-body">
+                                <div class="field">
+                                    <p class="control">
+                                        <input class="input" type="number" placeholder="cranial: wie CA" name="" value="{{form['tubform']}}">
+                                            <required>
+                                    </p>
+                                </div>
+                                <div class="field">
+                                        <p class="control">
+                                            <input class="input" type="number" placeholder="caudal: wie CA" name="tubform" value="{{form['tubform']}}">
+                                                <required>
+                                        </p>
+                                </div>
+                                <div class="field">
+                                        <p class="control">
+                                            <input class="input" type="number" placeholder="medial: wie CA" name="tubform" value="{{form['tubform']}}">
+                                                <required>
+                                        </p>
+                                </div>
+                                <div class="field">
+                                        <p class="control">
+                                            <input class="input" type="number" placeholder="lateral: wie CA" name="tubform" value="{{form['tubform']}}">
+                                                <required>
+                                        </p>
+                                </div>   
+                                <div class="field">
+                                        <p class="control">
+                                            <input class="input" type="number" placeholder="dorsal: wie CA" name="tubform" value="{{form['tubform']}}">
+                                                <required>
+                                        </p>
+                                </div>
+                                <div class="field">
+                                        <p class="control">
+                                            <input class="input" type="number" placeholder="ventral: wie CA" name="tubform" value="{{form['tubform']}}">
+                                                <required>
+                                        </p>
+                                </div>          
+                            </div>
+                        </div>        
+
+                        <div class="field is-horizontal">
+                                <div class="field-label is-normal">
+                                    <label class="label">Prädiktive Marker</label>
+                                </div>
+                                <div class="field-body">
+                                    <div class="field">
+                                            <p class="control">
+                                                <input class="input" type="number" placeholder="ER %" name="tubform" value="{{form['tubform']}}">
+                                                    <required>
+                                            </p>
+                                    </div>
+                                    <div class="field">
+                                            <p class="control">
+                                                <input class="input" type="number" placeholder="PR %" name="tubform" value="{{form['tubform']}}">
+                                                    <required>
+                                            </p>
+                                    </div>
+                                    <div class="field">
+                                            <p class="control">
+                                                <input class="input" type="number" placeholder="HER2 0,1,2,3" name="tubform" value="{{form['tubform']}}">
+                                                    <required>
+                                            </p>
+                                    </div>   
+                                    <div class="field">
+                                            <p class="control">
+                                                <input class="input" type="number" placeholder="Ki67 %" name="tubform" value="{{form['tubform']}}">
+                                                    <required>
+                                            </p>
+                                    </div>
+                                </div>
+                            </div>   
+                            
+                <div class="field is-horizontal">
+                        <div class="field-label is-normal">
+                            <label class="label">Lymphknoten</label>
+                        </div>
+                        <div class="field-body">
+                            <div class="field">
+                                <p class="control">
+                                    <input class="input" type="text" placeholder="positiv" name="lymphknoten_x" value="{{form['lymphknoten_x']}}">
+                                </p>
+                            </div>
+                            <div class="field">
+                                <p class="control">
+                                    <input class="input " type="text" placeholder="negativ" name="lymphknoten_y" value="{{form['lymphknoten_y']}}">
+                                </p>
+                            </div>
+                        </div>
+                </div>
+
+                <h2 class="subtitle">3. Übrige Mamma</h2>            
+
+                <div class="field is-horizontal">
+                    <div class="field-label">
+                    </div>
+                    <div class="field-body">
+                        <div class="field">
+                            <div class="control">
+                                <label class="checkbox">
+                                    <input type="checkbox" name="lymphangiose" {% if form['lymphangiose'] %} checked {%
+                                        endif %}>
+                                    Fibrose&Duktektasien
+                                </label>
+                                <label class="checkbox">
+                                    <input type="checkbox" name="haengiose" {% if form['haengiose'] %} checked {% endif
+                                        %}>
+                                    Apokrine Metaplasie
+                                </label>
+                                <label class="checkbox">
+                                    <input type="checkbox" name="perineuralscheideninfiltration" {% if
+                                        form['perineuralscheideninfiltration'] %} checked {% endif %}>
+                                    Papillomen der periph...
+                                </label>
+                                <label class="checkbox">
+                                    <input type="checkbox" name="tumorfreie_sabla" {% if form['tumorfreie_sabla'] %}
+                                        checked {% endif %}>
+                                    UDH
+                                </label>
+                                <label class="checkbox">
+                                    <input type="checkbox" name="extraprostatisches_wachstum" {% if
+                                        form['extraprostatisches_wachstum'] %} checked {% endif %}>
+                                    Mikrokalk in asso...
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="field is-horizontal">
+                    <div class="field-label">
+                        <!-- Left empty for spacing -->
+                    </div>
+                    <div class="field-body">
+                        <div class="field">
+                            <div class="control">
+                                <button class="button is-primary" type="submit">
+                                    Bericht erstellen
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+
+        <div class="section container">
+            <div class="from-horizontal">
+                <div class="field is-horizontal">
+                    <div class="field-label is-normal">
+                        <label class="label">Diagnose</label>
+                    </div>
+                    <div class="field-body">
+                        <div class="field">
+                            <pre style="white-space: pre-line" id="s1">
+                                {{s1}}
+                            </pre>
+                        </div>
+                    </div>
+                </div>
+                <div class="field is-horizontal">
+                    <div class="field-label">
+                        <!-- Left empty for spacing -->
+                    </div>
+                    <div class="field-body">
+                        <div class="field">
+                            <div class="control">
+                                <button class="button is-info" id="button_s1">
+                                    Diagnose kopieren
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="section container">
+            <div class="from-horizontal">
+                <div class="field is-horizontal">
+                    <div class="field-label is-normal">
+                        <label class="label">Zusammenfassung</label>
+                    </div>
+                    <div class="field-body">
+                        <div class="field">
+                            <pre style="white-space: pre-line" id="s2">
+                                {{s2}}
+                            </pre>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="field is-horizontal">
+                    <div class="field-label">
+                        <!-- Left empty for spacing -->
+                    </div>
+                    <div class="field-body">
+                        <div class="field">
+                            <div class="control">
+                                <button class="button is-info" id="button_s2">
+                                    Zusammenfassung kopieren
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+</body>
+<script type="text/javascript">
+
+    function copy(id) {
+        var copyText = document.getElementById(id).innerHTML;
+        copyText = copyText.trim();
+        const textArea = document.createElement('textarea');
+        textArea.textContent = copyText;
+        document.body.append(textArea);
+        textArea.select();
+        /* Copy the text inside the text field */
+        document.execCommand("copy");
+
+        textArea.parentNode.removeChild(textArea);
+
+        /* Alert the copied text */
+        console.log("Copied the text: " + copyText.value);
+    }
+
+    document.getElementById("button_s1").addEventListener("click", function () {
+        copy("s1")
+    }, false);
+    document.getElementById("button_s2").addEventListener("click", function () {
+        copy("s2")
+    }, false);
+
+</script>
+
+</html>

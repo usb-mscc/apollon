@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Apollon - smart reporting</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.2/css/bulma.min.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+</head>
+
+<body>
+    <section class="section">
+        <div class="container">
+            <h1 class="title">Apollon</h1>
+            <p class="subtitle">smart reporting</p>
+        </div>
+        <div class="section container">
+            <h1 class="title">Kolonkarzinom</h1>
+            <form class="form-horizontal" action="/generate" method="POST">
+                <input type="hidden" value="colon" name="report_type">
+                <div class="field is-horizontal">
+                    <div class="field-label">
+                        <label class="label">Differenzierung</label>
+                    </div>
+                    <div class="field-body">
+                        <div class="field is-narrow">
+                            <div class="control">
+                                <label class="radio">
+                                    <input type="radio" name="lappen" value="links" {% if form['lappen']=='links' %}
+                                        checked {% endif %}>
+                                    Gut
+                                </label>
+                                <label class="radio">
+                                    <input type="radio" name="lappen" value="rechts" {% if form['lappen']=='rechts' %}
+                                        checked {% endif %}>
+                                    Mässig
+                                </label>
+                                <label class="radio">
+                                    <input type="radio" name="lappen" value="Beide" {% if form['lappen']=='beide' %}
+                                        checked {% endif %}>
+                                    Schlecht
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="field is-horizontal">
+                        <div class="field-label">
+                            <label class="label">Lokalisation</label>
+                        </div>
+                        <div class="field-body">
+                            <div class="field is-narrow">
+                                <div class="control">
+                                    <label class="radio">
+                                        <input type="radio" name="lappen" value="links" {% if form['lappen']=='links' %}
+                                            checked {% endif %}>
+                                        Ascendens
+                                    </label>
+                                    <label class="radio">
+                                        <input type="radio" name="lappen" value="rechts" {% if form['lappen']=='rechts' %}
+                                            checked {% endif %}>
+                                        Transversum
+                                    </label>
+                                    <label class="radio">
+                                        <input type="radio" name="lappen" value="Beide" {% if form['lappen']=='beide' %}
+                                            checked {% endif %}>
+                                        Descendens
+                                    </label>
+                                    <label class="radio">
+                                            <input type="radio" name="lappen" value="Beide" {% if form['lappen']=='beide' %}
+                                                checked {% endif %}>
+                                        Sigmoideum
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="field is-horizontal">
+                            <div class="field-label">
+                                <label class="label">Infiltrationstiefe</label>
+                            </div>
+                            <div class="field-body">
+                                <div class="field is-narrow">
+                                    <div class="control">
+                                        <label class="radio">
+                                            <input type="radio" name="lappen" value="links" {% if form['lappen']=='links' %}
+                                                checked {% endif %}>
+                                            Submukosa pT1
+                                        </label>
+                                        <label class="radio">
+                                            <input type="radio" name="lappen" value="rechts" {% if form['lappen']=='rechts' %}
+                                                checked {% endif %}>
+                                            Muscularis propria pT2
+                                        </label>
+                                        <label class="radio">
+                                            <input type="radio" name="lappen" value="Beide" {% if form['lappen']=='beide' %}
+                                                checked {% endif %}>
+                                            Perikolisches Fett pT3
+                                        </label>
+                                        <label class="radio">
+                                                <input type="radio" name="lappen" value="Beide" {% if form['lappen']=='beide' %}
+                                                    checked {% endif %}>
+                                            Durchbruch pT4
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="field is-horizontal">
+                                <div class="field-label">
+                                    <label class="label">Infiltration Resektionsränder</label>
+                                </div>
+                                <div class="field-body">
+                                    <div class="field is-narrow">
+                                        <div class="control">
+                                            <label class="radio">
+                                                <input type="radio" name="lappen" value="links" {% if form['lappen']=='links' %}
+                                                    checked {% endif %}>
+                                                Oral
+                                            </label>
+                                            <label class="radio">
+                                                <input type="radio" name="lappen" value="rechts" {% if form['lappen']=='rechts' %}
+                                                    checked {% endif %}>
+                                                Aboral
+                                            </label>
+                                            <label class="radio">
+                                                <input type="radio" name="lappen" value="Beide" {% if form['lappen']=='beide' %}
+                                                    checked {% endif %}>
+                                                Tief
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                <div class="field is-horizontal">
+                    <div class="field-label is-normal">
+                        <label class="label">Durchmesser</label>
+                    </div>
+                    <div class="field-body">
+                        <div class="field">
+                            <div class="control">
+                                <input class="input" type="number" placeholder="mm" name="durchmesser" value="{{form['durchmesser']}}">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="field is-horizontal">
+                        <div class="field-label is-normal">
+                            <label class="label">Tumorbuds</label>
+                        </div>
+                        <div class="field-body">
+                            <div class="field">
+                                <div class="control">
+                                    <input class="input" type="number" placeholder="Bd1 0-4, Bd2 5-9, Bd3 >9" name="durchmesser" value="{{form['durchmesser']}}">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="field is-horizontal">
+                                <div class="field-label">
+                                    <label class="label">Objektiv</label>
+                                </div>
+                                <div class="field-body">
+                                    <div class="field is-narrow">
+                                        <div class="control">
+                                            <label class="radio">
+                                                <input type="radio" name="lappen" value="links" {% if form['lappen']=='links' %}
+                                                    checked {% endif %}>
+                                                23
+                                            </label>
+                                            <label class="radio">
+                                                <input type="radio" name="lappen" value="rechts" {% if form['lappen']=='rechts' %}
+                                                    checked {% endif %}>
+                                                24
+                                            </label>
+                                            <label class="radio">
+                                                <input type="radio" name="lappen" value="Beide" {% if form['lappen']=='beide' %}
+                                                    checked {% endif %}>
+                                                25
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                    </div>
+
+                <div class="field is-horizontal">
+                    <div class="field-label is-normal">
+                        <label class="label">Lymphknoten (X/Y)</label>
+                    </div>
+                    <div class="field-body">
+                        <div class="field">
+                            <p class="control">
+                                <input class="input" type="text" name="lymphknoten_x" value="{{form['lymphknoten_x']}}">
+                            </p>
+                        </div>
+                        <div class="field">
+                            <p class="control">
+                                <input class="input " type="text" name="lymphknoten_y" value="{{form['lymphknoten_y']}}">
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="field is-horizontal">
+                    <div class="field-label">
+                        <label class="label">Weitere Informationen:</label>
+                    </div>
+                    <div class="field-body">
+                        <div class="field">
+                            <div class="control">
+                                <label class="checkbox">
+                                    <input type="checkbox" name="lymphangiose" {% if form['lymphangiose'] %} checked {%
+                                        endif %}>
+                                    Lymphangiose
+                                </label>
+                                <label class="checkbox">
+                                    <input type="checkbox" name="haengiose" {% if form['haengiose'] %} checked {% endif
+                                        %}>
+                                    Hämangiose
+                                </label>
+                                <label class="checkbox">
+                                    <input type="checkbox" name="perineuralscheideninfiltration" {% if
+                                        form['perineuralscheideninfiltration'] %} checked {% endif %}>
+                                    Perineuralscheideninfiltration
+                                </label><br>
+                                <label class="checkbox">
+                                    <input type="checkbox" name="tumorfreie_sabla" {% if form['tumorfreie_sabla'] %}
+                                        checked {% endif %}>
+                                    MSS +
+                                </label>
+                                <label class="checkbox">
+                                    <input type="checkbox" name="extraprostatisches_wachstum" {% if
+                                        form['extraprostatisches_wachstum'] %} checked {% endif %}>
+                                    MSS -
+                                </label>
+                                <label class="checkbox">
+                                        <input type="checkbox" name="extraprostatisches_wachstum" {% if
+                                            form['extraprostatisches_wachstum'] %} checked {% endif %}>
+                                    MSS folgt
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="field is-horizontal">
+                    <div class="field-label">
+                        <!-- Left empty for spacing -->
+                    </div>
+                    <div class="field-body">
+                        <div class="field">
+                            <div class="control">
+                                <button class="button is-primary" type="submit">
+                                    Bericht erstellen
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+
+        <div class="section container">
+            <div class="from-horizontal">
+                <div class="field is-horizontal">
+                    <div class="field-label is-normal">
+                        <label class="label">Diagnose</label>
+                    </div>
+                    <div class="field-body">
+                        <div class="field">
+                            <pre style="white-space: pre-line" id="s1">
+                                {{s1}}
+                            </pre>
+                        </div>
+                    </div>
+                </div>
+                <div class="field is-horizontal">
+                    <div class="field-label">
+                        <!-- Left empty for spacing -->
+                    </div>
+                    <div class="field-body">
+                        <div class="field">
+                            <div class="control">
+                                <button class="button is-info" id="button_s1">
+                                    Diagnose kopieren
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="section container">
+            <div class="from-horizontal">
+                <div class="field is-horizontal">
+                    <div class="field-label is-normal">
+                        <label class="label">Zusammenfassung</label>
+                    </div>
+                    <div class="field-body">
+                        <div class="field">
+                            <pre style="white-space: pre-line" id="s2">
+                                {{s2}}
+                            </pre>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="field is-horizontal">
+                    <div class="field-label">
+                        <!-- Left empty for spacing -->
+                    </div>
+                    <div class="field-body">
+                        <div class="field">
+                            <div class="control">
+                                <button class="button is-info" id="button_s2">
+                                    Zusammenfassung kopieren
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+</body>
+<script type="text/javascript">
+
+    function copy(id) {
+        var copyText = document.getElementById(id).innerHTML;
+        copyText = copyText.trim();
+        const textArea = document.createElement('textarea');
+        textArea.textContent = copyText;
+        document.body.append(textArea);
+        textArea.select();
+        /* Copy the text inside the text field */
+        document.execCommand("copy");
+
+        textArea.parentNode.removeChild(textArea);
+
+        /* Alert the copied text */
+        console.log("Copied the text: " + copyText.value);
+    }
+
+    document.getElementById("button_s1").addEventListener("click", function () {
+        copy("s1")
+    }, false);
+    document.getElementById("button_s2").addEventListener("click", function () {
+        copy("s2")
+    }, false);
+
+</script>
+
+</html>
