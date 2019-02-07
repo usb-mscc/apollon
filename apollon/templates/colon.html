@@ -27,19 +27,19 @@
                         <div class="field is-narrow">
                             <div class="control">
                                 <label class="radio">
-                                    <input type="radio" name="lappen" value="links" {% if form['lappen']=='links' %}
+                                    <input type="radio" name="Differenzierung" value="Gut" {% if form['Differenzierung']=='Gut' %}
                                         checked {% endif %}>
                                     Gut
                                 </label>
                                 <label class="radio">
-                                    <input type="radio" name="lappen" value="rechts" {% if form['lappen']=='rechts' %}
+                                    <input type="radio" name="Differenzierung" value="Mässig" {% if form['Differenzierung']=='Mässig' %}
                                         checked {% endif %}>
                                     Mässig
                                 </label>
                                 <label class="radio">
-                                    <input type="radio" name="lappen" value="Beide" {% if form['lappen']=='beide' %}
+                                    <input type="radio" name="Differenzierung" value="Gering" {% if form['Differenzierung']=='Gering' %}
                                         checked {% endif %}>
-                                    Schlecht
+                                    Gering
                                 </label>
                             </div>
                         </div>
@@ -54,22 +54,22 @@
                             <div class="field is-narrow">
                                 <div class="control">
                                     <label class="radio">
-                                        <input type="radio" name="lappen" value="links" {% if form['lappen']=='links' %}
+                                        <input type="radio" name="Lokalisation" value="ascendens" {% if form['Lokalisation']=='ascendens' %}
                                             checked {% endif %}>
                                         Ascendens
                                     </label>
                                     <label class="radio">
-                                        <input type="radio" name="lappen" value="rechts" {% if form['lappen']=='rechts' %}
+                                        <input type="radio" name="Lokalisation" value="transversum" {% if form['Lokalisation']=='transversum' %}
                                             checked {% endif %}>
                                         Transversum
                                     </label>
                                     <label class="radio">
-                                        <input type="radio" name="lappen" value="Beide" {% if form['lappen']=='beide' %}
+                                        <input type="radio" name="Lokalisation" value="descendens" {% if form['Lokalisation']=='descendens' %}
                                             checked {% endif %}>
                                         Descendens
                                     </label>
                                     <label class="radio">
-                                            <input type="radio" name="lappen" value="Beide" {% if form['lappen']=='beide' %}
+                                            <input type="radio" name="Lokalisation" value="sigmoideum" {% if form['Lokalisation']=='sigmoideum' %}
                                                 checked {% endif %}>
                                         Sigmoideum
                                     </label>
@@ -86,22 +86,22 @@
                                 <div class="field is-narrow">
                                     <div class="control">
                                         <label class="radio">
-                                            <input type="radio" name="lappen" value="links" {% if form['lappen']=='links' %}
+                                            <input type="radio" name="Infiltrationstiefe" value="Submukosa" {% if form['Infiltrationstiefe']=='Submukosa' %}
                                                 checked {% endif %}>
                                             Submukosa pT1
                                         </label>
                                         <label class="radio">
-                                            <input type="radio" name="lappen" value="rechts" {% if form['lappen']=='rechts' %}
+                                            <input type="radio" name="Infiltrationstiefe" value="Muscularis" {% if form['Infiltrationstiefe']=='Muscularis' %}
                                                 checked {% endif %}>
                                             Muscularis propria pT2
                                         </label>
                                         <label class="radio">
-                                            <input type="radio" name="lappen" value="Beide" {% if form['lappen']=='beide' %}
+                                            <input type="radio" name="Infiltrationstiefe" value="Perikolisches" {% if form['Infiltrationstiefe']=='Perikolisches' %}
                                                 checked {% endif %}>
                                             Perikolisches Fett pT3
                                         </label>
                                         <label class="radio">
-                                                <input type="radio" name="lappen" value="Beide" {% if form['lappen']=='beide' %}
+                                                <input type="radio" name="Infiltrationstiefe" value="Durchbruch" {% if form['Infiltrationstiefe']=='Durchbruch' %}
                                                     checked {% endif %}>
                                             Durchbruch pT4
                                         </label>
@@ -112,24 +112,21 @@
 
                         <div class="field is-horizontal">
                                 <div class="field-label">
-                                    <label class="label">Infiltration Resektionsränder</label>
+                                    <label class="label">Tumor im Resektionsrand</label>
                                 </div>
                                 <div class="field-body">
                                     <div class="field is-narrow">
                                         <div class="control">
-                                            <label class="radio">
-                                                <input type="radio" name="lappen" value="links" {% if form['lappen']=='links' %}
-                                                    checked {% endif %}>
+                                            <label class="checkbox">
+                                                <input type="checkbox" name="randoral" {% if form['randoral'] %} checked {%endif %}>
                                                 Oral
                                             </label>
-                                            <label class="radio">
-                                                <input type="radio" name="lappen" value="rechts" {% if form['lappen']=='rechts' %}
-                                                    checked {% endif %}>
+                                            <label class="checkbox">
+                                                <input type="checkbox" name="randaboral" {% if form['randaboral'] %} checked {%endif %}>
                                                 Aboral
                                             </label>
-                                            <label class="radio">
-                                                <input type="radio" name="lappen" value="Beide" {% if form['lappen']=='beide' %}
-                                                    checked {% endif %}>
+                                            <label class="checkbox">
+                                                <input type="checkbox" name="randtief" {% if form['randtief'] %} checked {%endif %}>
                                                 Tief
                                             </label>
                                         </div>
@@ -157,7 +154,7 @@
                         <div class="field-body">
                             <div class="field">
                                 <div class="control">
-                                    <input class="input" type="number" placeholder="Bd1 0-4, Bd2 5-9, Bd3 >9" name="durchmesser" value="{{form['durchmesser']}}">
+                                    <input class="input" type="number" placeholder="Bd1 0-4, Bd2 5-9, Bd3 >9" name="Tumorbuds" value="{{form['Tumorbuds']}}">
                                 </div>
                             </div>
                         </div>
@@ -169,17 +166,17 @@
                                     <div class="field is-narrow">
                                         <div class="control">
                                             <label class="radio">
-                                                <input type="radio" name="lappen" value="links" {% if form['lappen']=='links' %}
+                                                <input type="radio" name="Objektiv" value="23" {% if form['Objektiv']=='23' %}
                                                     checked {% endif %}>
                                                 23
                                             </label>
                                             <label class="radio">
-                                                <input type="radio" name="lappen" value="rechts" {% if form['lappen']=='rechts' %}
+                                                <input type="radio" name="Objektiv" value="24" {% if form['Objektiv']=='24' %}
                                                     checked {% endif %}>
                                                 24
                                             </label>
                                             <label class="radio">
-                                                <input type="radio" name="lappen" value="Beide" {% if form['lappen']=='beide' %}
+                                                <input type="radio" name="Objektiv" value="25" {% if form['Objektiv']=='25' %}
                                                     checked {% endif %}>
                                                 25
                                             </label>
@@ -191,17 +188,17 @@
 
                 <div class="field is-horizontal">
                     <div class="field-label is-normal">
-                        <label class="label">Lymphknoten (X/Y)</label>
+                        <label class="label">Lymphknoten</label>
                     </div>
                     <div class="field-body">
                         <div class="field">
                             <p class="control">
-                                <input class="input" type="text" name="lymphknoten_x" value="{{form['lymphknoten_x']}}">
+                                <input class="input" type="text" placeholder="positiv" name="lymphknoten_x" value="{{form['lymphknoten_x']}}">
                             </p>
                         </div>
                         <div class="field">
                             <p class="control">
-                                <input class="input " type="text" name="lymphknoten_y" value="{{form['lymphknoten_y']}}">
+                                <input class="input " type="text" placeholder="negativ" name="lymphknoten_y" value="{{form['lymphknoten_y']}}">
                             </p>
                         </div>
                     </div>
@@ -215,13 +212,11 @@
                         <div class="field">
                             <div class="control">
                                 <label class="checkbox">
-                                    <input type="checkbox" name="lymphangiose" {% if form['lymphangiose'] %} checked {%
-                                        endif %}>
+                                    <input type="checkbox" name="lymphangiose" {% if form['lymphangiose'] %} checked {%endif %}>
                                     Lymphangiose
                                 </label>
                                 <label class="checkbox">
-                                    <input type="checkbox" name="haengiose" {% if form['haengiose'] %} checked {% endif
-                                        %}>
+                                    <input type="checkbox" name="haengiose" {% if form['haengiose'] %} checked {% endif%}>
                                     Hämangiose
                                 </label>
                                 <label class="checkbox">
@@ -229,19 +224,19 @@
                                         form['perineuralscheideninfiltration'] %} checked {% endif %}>
                                     Perineuralscheideninfiltration
                                 </label><br>
-                                <label class="checkbox">
-                                    <input type="checkbox" name="tumorfreie_sabla" {% if form['tumorfreie_sabla'] %}
+                                <label class="radio">
+                                    <input type="radio" name="MSS" value="MSS+" {% if form['MSS']=='MSS+' %}
                                         checked {% endif %}>
-                                    MSS +
+                                    MSS+
                                 </label>
-                                <label class="checkbox">
-                                    <input type="checkbox" name="extraprostatisches_wachstum" {% if
-                                        form['extraprostatisches_wachstum'] %} checked {% endif %}>
-                                    MSS -
+                                <label class="radio">
+                                    <input type="radio" name="MSS" value="MSS-" {% if form['MSS']=='MSS-' %}
+                                        checked {% endif %}>
+                                    MSS-
                                 </label>
-                                <label class="checkbox">
-                                        <input type="checkbox" name="extraprostatisches_wachstum" {% if
-                                            form['extraprostatisches_wachstum'] %} checked {% endif %}>
+                                <label class="radio">
+                                    <input type="radio" name="MSS" value="MSSfolgt" {% if form['MSS']=='MSSfolgt' %}
+                                        checked {% endif %}>
                                     MSS folgt
                                 </label>
                             </div>

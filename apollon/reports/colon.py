@@ -1,44 +1,82 @@
 
 def create(form):
     txtDm = form["durchmesser"]
-    gl1 = form["gleason_x"]
-    gl2 = form["gleason_y"]
-    lkpos = form["lymphknoten_x"]
+    grading = form["Differenzierung"]
+    lokalisation = form["Lokalisation"]
+    tiefe = form["Infiltrationstiefe"] 
+    lkpos = int(form["lymphknoten_x"])
     lkneg = form["lymphknoten_y"]
-
-    gls = 0
-
-    if gl1 == 3 and gl2 == 3:
-        isup = "1 "
-        gls = "6"
-    elif gl1 == 3 and gl2 == 4:
-        gls = "7"
-        isup = "2 "
-    elif gl1 == 4 and gl2 == 3:
-        isup = "3 "
-        gls = "7"
-    elif gl1 == 4 and gl2 == 4:
-        isup = "4 "
-        gls = "8"
-    elif gl1 == 5 and gl2 == 3:
-        isup = "4 "
-        gls = "8"
-    elif gl1 == 3 and gl2 == 5:
-        isup = "4 "
-        gls = "8"
+    
+    if grading == "Gut":
+        grading = "Gut differenziertes "
+    elif grading == "Mässig":
+        grading = "Mässig differenziertes "
     else:
-        isup = "5 "
-        gls = "9"
+        grading = "Gering differenziertes "
 
-    lappen = form["lappen"]
-
-    if lappen == "links":
-        lappen = ", im linken Prostatalappen"
-    elif lappen == "rechts":
-        lappen = ", im rechten Prostatalappen"
+    pT = 0
+    if tiefe == "Submukosa":
+        tiefe = "Tumorinfiltration bis in die Submukosa. "
+        pT = "pT1"
+    elif tiefe == "Muscularis":
+        tiefe = "Tumorinfiltration bis in die Muscularis propria. "
+        pT = "pT2"
+    elif tiefe == "Perikolisches":
+        tiefe = "Tumorinfiltration aller Wandschichten bis in das subserosale Fettgewebe. "
+        pT = "pT3"
     else:
-        lappen = ", in beiden Prostatalappen"
+        tiefe = "Tumorinfiltration aller Wandschichten mit Durchbruch durch die Serosa. "
+        pT = "pT4a"   
 
+    rro = form.get("randoral", "")
+    rro1 = 0
+    rra = form.get("randaboral", "")
+    rrt = form.get("randtief", "")
+    if rro == "" and rra == "" and rrt == "":
+        rro = "Tumorfreier oraler, aboraler und tiefer Resektionsrand."
+        rro1 = "R0 (lokal)"
+        rro2 = "Tumorfreie Resektionsränder."
+    elif rro == "on" and rra == "" and rrt == "":
+        rro = "Tumorinfiltration in den oralen Resektionsrand. Tumorfreier aboraler und tiefer Resektionsrand."
+        rro1 = "R1"
+        rro2 = "Tumornachweis bis in den Resektionsrand."
+    elif rro == "" and rra == "on" and rrt == "":
+        rro = "Tumorinfiltration in den aboralen Resektionsrand. Tumorfreier oraler und tiefer Resektionsrand."
+        rro1 = "R1"
+        rro2 = "Tumornachweis bis in den Resektionsrand."
+    elif rro == "" and rra == "" and rrt == "on":
+        rro = "Tumorinfiltration in den tiefen Resektionsrand. Tumorfreier oraler und aboraler Resektionsrand."
+        rro1 = "R1"
+        rro2 = "Tumornachweis bis in den Resektionsrand."
+    elif rro == "on" and rra == "on" and rrt == "":
+        rro = "Tumorinfiltration in den oralen und aboralen Resektionsrand. Tumorfreier tiefer Resektionsrand."
+        rro1 = "R1"
+        rro2 = "Tumornachweis bis in den Resektionsrand."
+    elif rro == "" and rra == "on" and rrt == "on":
+        rro = "Tumorinfiltration in den tiefen und aboralen Resektionsrand. Tumorfreier oraler Resektionsrand."
+        rro1 = "R1"
+        rro2 = "Tumornachweis bis in den Resektionsrand."
+    else:
+        rro = "Tumorinfiltration in den tiefen, oralen und aboralen Resektionsrand."
+        rro2 = "Tumornachweis bis in den Resektionsrand."
+        rro1 = "R1"
+
+    tb = float(form["Tumorbuds"])
+    objectiv = form["Objektiv"]
+    if objectiv == "23":
+        tb = tb/1.323
+    elif objectiv == "24":
+        tb = tb/1.440
+    else:
+        tb = tb/1.563
+    
+    tb1 = 0
+    if tb <= 4:
+        tb1 = "Tumorbudding : Bd1 (low), "
+    elif tb > 4 and tb < 10:
+        tb1 = "Tumorbudding : Bd2 (intermediate), "
+    else:
+        tb1 = "Tumorbudding : Bd3 (high), "
 
     pn1 = form.get("perineuralscheideninfiltration", "")
     pn2 = 0
@@ -48,29 +86,6 @@ def create(form):
     else:
         pn1 = ""
         pn2 = "Pn0, "
-
-
-
-    sabla = form.get("tumorfreie_sabla", "")
-    sablapt3b = 0
-
-    if sabla == "on":
-        sabla = "Tumorfreie Samenblase. "
-        sablapt3b = 0
-    else:
-        sabla = "Infiltration der Samenblase. "
-        sablapt3b = 1
-
-
-    ep = form.get("extraprostatisches_wachstum", "")
-    ep1 = 0
-    if ep == "on":
-        ep = "Extraprostatisches Wachstum. "
-        ep1 = 1
-    else:
-        ep = "Kein Extraprostatisches Wachstum. "
-        ep1 = 0
-
 
     lymphangiosis = 0
     hämangiosis = 0
@@ -85,15 +100,12 @@ def create(form):
     else:
         und1 = ""
 
-
     if lymphangiosis == "on":
         lymphangiosis1 = "Lymphangiosis "
         l1 = "L1, "
     else:
         lymphangiosis1 = ""
         l1 = "L0, "
-
-
 
     if hämangiosis == "on":
         hämangiosis1 = "Hämangiosis "
@@ -109,50 +121,27 @@ def create(form):
     else:
         ca = ""
 
-    lkp = 0
-
     if lkpos == 0:
         lkp = "pN0"
+    elif lkpos == 1:
+        lkp = "pN1a"
+    elif lkpos > 1 and lkpos <= 3:
+        lkp = "pN1b"
+    elif lkpos > 3 and lkpos <= 6:
+        lkp = "pN2a"
     else:
-        lkp = "pN1"
+        lkp = "pN2b"
 
+    mss = form["MSS"]
 
-    rr = form.get("rr_tumorfrei", "")
-    rro1 = 0
-
-    rrlok = form["rr_wo"]
-    rrmm = form["rr_strecke"]
-
-
-
-    if rr == 1:
-        rr = "Tumorfreie Resektionsränder. Minimaler Abstand zum Resektionsrand: " + str(rrmm) + "mm " + "(" + str(rrlok) + ")."
-        rro1 = "R0 (lokal)"
+    if mss == "MSS+":
+        mss = "Mikrosatellitenstabil (MSS)"
+    elif mss == "MSS-":
+        mss = "Mikrosatelliteninstabil (MSI)"
     else:
-        rr = "Tumor bis in Resektionsrand " + str(rrlok) + "über eine Strecke von " + str(rrmm) + "."
-        rro1 = "R1"
+        mss = "Bestimmung der Mikrosatelliten folgt"
 
-
-
-    pT = form["lappen"]
-    if pT == "links" or pT == "rechts":
-        pT = "pT2b"
-    elif pT == "beide":
-        pT = "pT2c"
-
-
-    if ep1 == "on": # extra wachstum
-        pT = "pT3a"
-    else:
-        pT
-
-    if sablapt3b == "on": # tumorfrei sabla
-        pT = "pT3b"
-    else:
-        pT
-
-    sentense1 = "Prostata (Ektomie):\nAdenokarzinom der Prostata, Gleason " + gls + " (" + str(gl1) + "+" + str(gl2) + "), WHO/ISUP Grad " + isup + "(maximaler Tumordurchmesser: " + str(txtDm) + " mm). " + pn1 + sabla + lymphangiosis1 + und1 + hämangiosis1 + ca + ep + rr
-
-    sentense2 = "Adenokarzinom der Prostata, Gleason " + gls + " (" + str(gl1) + "+" + str(gl2) + "), WHO/ISUP Grad " + isup + "(maximaler Tumordurchmesser: " + str(txtDm) + " mm). " + rr + "\n\nTNM-Klassifikation (8. Auflage, UICC):\n" + pT + ", " + lkp + "(" + str(lkpos) + "/" + str(lkneg) + "), " + l1 + v1 + pn2 + rro1
-
+    sentense1 = "Colon " + lokalisation +  " (Ektomie):\n" + grading + "Adenokarzinom des Colon " + lokalisation + "(maximaler Tumordurchmesser: " + str(txtDm) + " mm). " + tiefe + lymphangiosis1 + und1 + hämangiosis1 + ca + pn1 + "\n\n" + tb1 + '{:.2}'.format(tb) + " Buds/0.785 mm^2" + "\n\n" + rro 
+    
+    sentense2 = grading + "Adenokarzinom des Colon " + lokalisation + " (maximaler Tumordurchmesser: " + str(txtDm) + " mm). " + rro2 + "\n\nTNM-Klassifikation (8. Auflage, UICC):\n" + pT + ", " + lkp + "(" + str(lkpos) + "/" + str(lkneg) + "), " + l1 + v1 + pn2 + rro1 + "\n\n" + tb1 + '{:.2}'.format(tb) + " Buds/0.785 mm^2\n\n" + mss
     return sentense1, sentense2
