@@ -38,5 +38,7 @@ def generate():
         s1, s2 = prostate_create(request.form)
     elif report_type == "colon":
         s1, s2 = colon_create(request.form)
+    elif report_type == "MRProstate":
+        s1, s2 = colon_create(request.form)
     template = report_type + ".html"
     return render_template(template, form=form, s1=s1, s2=s2)
