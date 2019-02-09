@@ -19,6 +19,225 @@
             <h1 class="title">Prostatakarzinom</h1>
             <form class="form-horizontal" action="/generate" method="POST">
                 <input type="hidden" value="prostate" name="report_type">
+                
+
+                <h1 class="title">1. Läsion</h1>
+
+                <div class="field is-horizontal">
+                        <div class="field-label">
+                            <label class="label">Lokalisation Basis</label>
+                        </div>
+                        <div class="field-body">
+                            <div class="field">
+                                <div class="control">
+                                    <label class="checkbox">
+                                        <input type="checkbox" name="AFSbaserechts" {% if form['AFSbaserechts'] %} checked {%
+                                            endif %}>
+                                        AFSbaserechts
+                                    </label>
+                                    <label class="checkbox">
+                                        <input type="checkbox" name="TZabaserechts" {% if form['TZabaserechts'] %} checked {%
+                                            endif %}>
+                                        TZabaserechts
+                                    </label>
+                                    <label class="checkbox">
+                                        <input type="checkbox" name="PZabaserechts" {% if form['PZabaserechts'] %} checked {%
+                                            endif %}>
+                                        PZabaserechts
+                                    </label>
+                                    <label class="checkbox">
+                                        <input type="checkbox" name="TZpbaserechts" {% if form['TZpbaserechts'] %} checked {%
+                                            endif %}>
+                                        TZpbaserechts
+                                    </label>
+                                    <label class="checkbox">
+                                        <input type="checkbox" name="PZpbaserechts" {% if form['PZpbaserechts'] %} checked {%
+                                            endif %}>
+                                        PZpbaserechts
+                                    </label>
+                                    <label class="checkbox">
+                                        <input type="checkbox" name="CZbaserechts" {% if form['CZbaserechts'] %} checked {%
+                                            endif %}>
+                                        CZ base rechts
+                                    </label>
+                                    <label class="checkbox">
+                                        <input type="checkbox" name="AFSbaselinks" {% if form['AFSbaselinks'] %} checked {%
+                                            endif %}>
+                                        AFSbaselinks
+                                    </label>
+                                    <label class="checkbox">
+                                        <input type="checkbox" name="TZabaselinks" {% if form['TZabaselinks'] %} checked {%
+                                            endif %}>
+                                        TZabaselinks
+                                    </label>
+                                    <label class="checkbox">
+                                        <input type="checkbox" name="PZabaselinks" {% if form['PZabaselinks'] %} checked {%
+                                            endif %}>
+                                        PZabaselinks
+                                    </label>
+                                    <label class="checkbox">
+                                        <input type="checkbox" name="TZpbaselinks" {% if form['TZpbaselinks'] %} checked {%
+                                            endif %}>
+                                        TZpbaselinks
+                                    </label>
+                                    <label class="checkbox">
+                                        <input type="checkbox" name="PZpbaselinks" {% if form['PZpbaselinks'] %} checked {%
+                                            endif %}>
+                                        PZpbaselinks
+                                    </label>
+                                    <label class="checkbox">
+                                        <input type="checkbox" name="CZbaselinks" {% if form['CZbaselinks'] %} checked {%
+                                            endif %}>
+                                        CZbaselinks
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="field is-horizontal">
+                            <div class="field-label">
+                                <label class="label">Lokalisation mid</label>
+                            </div>
+                            <div class="field-body">
+                                <div class="field">
+                                    <div class="control">
+                                            <label class="checkbox">
+                                                    <input type="checkbox" name="AFSmidrechts" {% if form['AFSmidrechts'] %} checked {%
+                                                        endif %}>
+                                                    AFSmidrechts
+                                                </label>
+                                                <label class="checkbox">
+                                                    <input type="checkbox" name="TZamidrechts" {% if form['TZamidrechts'] %} checked {%
+                                                        endif %}>
+                                                    TZamidrechts
+                                                </label>
+                                                <label class="checkbox">
+                                                    <input type="checkbox" name="PZamidrechts" {% if form['PZamidrechts'] %} checked {%
+                                                        endif %}>
+                                                    PZamidrechts
+                                                </label>
+                                                <label class="checkbox">
+                                                    <input type="checkbox" name="TZpmidrechts" {% if form['TZpmidrechts'] %} checked {%
+                                                        endif %}>
+                                                    TZpmidrechts
+                                                </label>
+                                                <label class="checkbox">
+                                                    <input type="checkbox" name="PZpmidrechts" {% if form['PZpmidrechts'] %} checked {%
+                                                        endif %}>
+                                                    PZpmidrechts
+                                                </label>
+                                                <label class="checkbox">
+                                                    <input type="checkbox" name="CZmidrechts" {% if form['CZmidrechts'] %} checked {%
+                                                        endif %}>
+                                                    CZmidrechts
+                                                </label>
+                                                <label class="checkbox">
+                                                    <input type="checkbox" name="AFSmidlinks" {% if form['AFSmidlinks'] %} checked {%
+                                                        endif %}>
+                                                    AFSmidlinks
+                                                </label>
+                                                <label class="checkbox">
+                                                    <input type="checkbox" name="TZamidlinks" {% if form['TZamidlinks'] %} checked {%
+                                                        endif %}>
+                                                    TZamidlinks
+                                                </label>
+                                                <label class="checkbox">
+                                                    <input type="checkbox" name="PZamidlinks" {% if form['PZamidlinks'] %} checked {%
+                                                        endif %}>
+                                                    PZamidlinks
+                                                </label>
+                                                <label class="checkbox">
+                                                    <input type="checkbox" name="TZpmidlinks" {% if form['TZpmidlinks'] %} checked {%
+                                                        endif %}>
+                                                    TZpmidlinks
+                                                </label>
+                                                <label class="checkbox">
+                                                    <input type="checkbox" name="PZpmidlinks" {% if form['PZpmidlinks'] %} checked {%
+                                                        endif %}>
+                                                    PZpmidlinks
+                                                </label>
+                                                <label class="checkbox">
+                                                    <input type="checkbox" name="CZmidlinks" {% if form['CZmidlinks'] %} checked {%
+                                                        endif %}>
+                                                    CZmidlinks
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="field is-horizontal">
+                                            <div class="field-label">
+                                                <label class="label">Lokalisation apex</label>
+                                            </div>
+                                            <div class="field-body">
+                                                <div class="field">
+                                                    <div class="control">
+                                                            <label class="checkbox">
+                                                                    <input type="checkbox" name="AFSapexrechts" {% if form['AFSapexrechts'] %} checked {%
+                                                                        endif %}>
+                                                                    AFSapexrechts
+                                                                </label>
+                                                                <label class="checkbox">
+                                                                    <input type="checkbox" name="TZaapexrechts" {% if form['TZaapexrechts'] %} checked {%
+                                                                        endif %}>
+                                                                    TZaapexrechts
+                                                                </label>
+                                                                <label class="checkbox">
+                                                                    <input type="checkbox" name="PZaapexrechts" {% if form['PZaapexrechts'] %} checked {%
+                                                                        endif %}>
+                                                                    PZaapexrechts
+                                                                </label>
+                                                                <label class="checkbox">
+                                                                    <input type="checkbox" name="TZpapexrechts" {% if form['TZpapexrechts'] %} checked {%
+                                                                        endif %}>
+                                                                    TZpapexrechts
+                                                                </label>
+                                                                <label class="checkbox">
+                                                                    <input type="checkbox" name="PZpapexrechts" {% if form['PZpapexrechts'] %} checked {%
+                                                                        endif %}>
+                                                                    PZpapexrechts
+                                                                </label>
+                                                                <label class="checkbox">
+                                                                    <input type="checkbox" name="CZapexrechts" {% if form['CZapexrechts'] %} checked {%
+                                                                        endif %}>
+                                                                    CZapexrechts
+                                                                </label>
+                                                                <label class="checkbox">
+                                                                    <input type="checkbox" name="AFSapexlinks" {% if form['AFSapexlinks'] %} checked {%
+                                                                        endif %}>
+                                                                    AFSapexlinks
+                                                                </label>
+                                                                <label class="checkbox">
+                                                                    <input type="checkbox" name="TZaapexlinks" {% if form['TZaapexlinks'] %} checked {%
+                                                                        endif %}>
+                                                                    TZaapexlinks
+                                                                </label>
+                                                                <label class="checkbox">
+                                                                    <input type="checkbox" name="PZaapexlinks" {% if form['PZaapexlinks'] %} checked {%
+                                                                        endif %}>
+                                                                    PZaapexlinks
+                                                                </label>
+                                                                <label class="checkbox">
+                                                                    <input type="checkbox" name="TZpapexlinks" {% if form['TZpapexlinks'] %} checked {%
+                                                                        endif %}>
+                                                                    TZpapexlinks
+                                                                </label>
+                                                                <label class="checkbox">
+                                                                    <input type="checkbox" name="PZpapexlinks" {% if form['PZpapexlinks'] %} checked {%
+                                                                        endif %}>
+                                                                    PZpapexlinks
+                                                                </label>
+                                                                <label class="checkbox">
+                                                                    <input type="checkbox" name="CZapexlinks" {% if form['CZapexlinks'] %} checked {%
+                                                                        endif %}>
+                                                                    CZapexlinks
+                                                                </label>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
                 <div class="field is-horizontal">
                     <div class="field-label is-normal">
                         <label class="label">Gleason
@@ -32,39 +251,9 @@
                                     required>
                             </p>
                         </div>
-                        <div class="field">
-                            <p class="control">
-                                <input class="input" type="number" placeholder="2. häufigste" name="gleason_y" value="{{form['gleason_y']}}">
-                            </p>
-                        </div>
                     </div>
                 </div>
-                <div class="field is-horizontal">
-                    <div class="field-label">
-                        <label class="label">Betroffene Lappen</label>
-                    </div>
-                    <div class="field-body">
-                        <div class="field is-narrow">
-                            <div class="control">
-                                <label class="radio">
-                                    <input type="radio" name="lappen" value="links" {% if form['lappen']=='links' %}
-                                        checked {% endif %}>
-                                    Links
-                                </label>
-                                <label class="radio">
-                                    <input type="radio" name="lappen" value="rechts" {% if form['lappen']=='rechts' %}
-                                        checked {% endif %}>
-                                    Rechts
-                                </label>
-                                <label class="radio">
-                                    <input type="radio" name="lappen" value="Beide" {% if form['lappen']=='beide' %}
-                                        checked {% endif %}>
-                                    Beide
-                                </label>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+
 
 
                 <div class="field is-horizontal">
@@ -98,8 +287,7 @@
                         </div>
                     </div>
                 </div>
-                <svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 194.78 117.18"><defs><style>.cls-1{fill:#fff;stroke:#000;stroke-miterlimit:10;}.cls-2{font-size:12px;font-family:MyriadPro-Regular, Myriad Pro;}.cls-3{letter-spacing:-0.01em;}.cls-4{letter-spacing:-0.01em;}.cls-5{letter-spacing:0em;}</style></defs><title>test</title><rect class="cls-1" x="0.5" y="0.5" width="193.78" height="116.18"/><text class="cls-2" transform="translate(39.5 24.57)"><tspan class="cls-3">L</tspan><tspan x="5.5" y="0">o</tspan><tspan class="cls-4" x="12.08" y="0">r</tspan><tspan class="cls-5" x="15.89" y="0">em ipsum</tspan></text></svg>
-
+                
 
                 <div class="field is-horizontal">
                     <div class="field-label">
