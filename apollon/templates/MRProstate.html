@@ -40,7 +40,7 @@
                                 <div class="field">
                                     <div class="control">
                                         <label class="checkbox">
-                                            <input type="checkbox" name="Artefakte" {% if form['Artefakte'] %} checked {%
+                                            <input type="checkbox" name="artefakte" {% if form['artefakte'] %} checked {%
                                                 endif %}>
                                         </label>
         
@@ -56,7 +56,7 @@
                                 <div class="field-body">
                                     <div class="field">
                                         <div class="control">
-                                            <input class="input" type="number" placeholder="ap" name="date" value="{{form['date']}}">
+                                            <input class="input" type="number" placeholder="ap" name="ap" value="{{form['ap']}}">
                                         </div>
                                     </div>
                                     <div class="field">
@@ -313,24 +313,24 @@
                                                                                     <div class="field is-narrow">
                                                                                         <div class="control">
                                                                                             <label class="radio">
-                                                                                                <input type="radio" name="lappen" value="ADC1" {% if form['lappen']=='ADC1' %}
+                                                                                                <input type="radio" name="ADC" value="ADC1" {% if form['ADC']=='ADC1' %}
                                                                                                     checked {% endif %}>
                                                                                                 Normal ADC1
                                                                                             </label>
                                                                                             <label class="radio">
-                                                                                                    <input type="radio" name="lappen" value="ADC2" {% if form['lappen']=='ADC2' %}
+                                                                                                    <input type="radio" name="ADC" value="ADC2" {% if form['ADC']=='ADC2' %}
                                                                                                         checked {% endif %}>
-                                                                                                    Undeutlich hypointens ADC2
+                                                                                                    Geringe Diffusionsrestriktion ADC2
                                                                                                 </label>
                                                                                                 <label class="radio">
-                                                                                                        <input type="radio" name="lappen" value="ADC3" {% if form['lappen']=='ADC3' %}
+                                                                                                        <input type="radio" name="ADC" value="ADC3" {% if form['ADC']=='ADC3' %}
                                                                                                             checked {% endif %}>
-                                                                                                        Fokal hypointens ADC3
+                                                                                                        Fokale Diffusionsrestriktion ADC3
                                                                                                     </label>
                                                                                                     <label class="radio">
-                                                                                                            <input type="radio" name="lappen" value="ADC4" {% if form['lappen']=='ADC4' %}
+                                                                                                            <input type="radio" name="ADC" value="ADC4" {% if form['ADC']=='ADC4' %}
                                                                                                                 checked {% endif %}>
-                                                                                                            Deutlich hypointens ADC4
+                                                                                                            Flächiger Diffusionsrestriktion ADC4
                                                                                                         </label>
                                                                                         </div>
                                                                                     </div>
@@ -357,12 +357,12 @@
                                                                                             <div class="field is-narrow">
                                                                                                 <div class="control">
                                                                                                     <label class="radio">
-                                                                                                        <input type="radio" name="lappen" value="DWI1" {% if form['lappen']=='DWI1' %}
+                                                                                                        <input type="radio" name="DWI" value="DWI1" {% if form['DWI']=='DWI1' %}
                                                                                                             checked {% endif %}>
                                                                                                         Normal DWI1
                                                                                                     </label>
                                                                                                     <label class="radio">
-                                                                                                            <input type="radio" name="lappen" value="DWI2" {% if form['lappen']=='DWI2' %}
+                                                                                                            <input type="radio" name="DWI" value="DWI2" {% if form['DWI']=='DWI2' %}
                                                                                                                 checked {% endif %}>
                                                                                                             Undeutlich hyperintens DWI2
                                                                                                         </label>
@@ -391,22 +391,22 @@
                                                                                                     <div class="field is-narrow">
                                                                                                         <div class="control">
                                                                                                             <label class="radio">
-                                                                                                                <input type="radio" name="lappen" value="T2w1" {% if form['lappen']=='T2w1' %}
+                                                                                                                <input type="radio" name="T2w" value="T2w1" {% if form['T2w']=='T2w1' %}
                                                                                                                     checked {% endif %}>
                                                                                                                 Normale T2w
                                                                                                             </label>
                                                                                                             <label class="radio">
-                                                                                                                    <input type="radio" name="lappen" value="T2w2" {% if form['lappen']=='T2w2' %}
+                                                                                                                    <input type="radio" name="T2w" value="T2w2" {% if form['T2w']=='T2w2' %}
                                                                                                                         checked {% endif %}>
                                                                                                                     Nodulär hypointense T2w
                                                                                                                 </label>
                                                                                                                 <label class="radio">
-                                                                                                                        <input type="radio" name="lappen" value="T2w3" {% if form['lappen']=='T2w3' %}
+                                                                                                                        <input type="radio" name="T2w" value="T2w3" {% if form['T2w']=='T2w3' %}
                                                                                                                             checked {% endif %}>
                                                                                                                         Unscharf hypointense T2w
                                                                                                                     </label>
                                                                                                                     <label class="radio">
-                                                                                                                            <input type="radio" name="lappen" value="T2w4" {% if form['lappen']=='T2w4' %}
+                                                                                                                            <input type="radio" name="T2w" value="T2w4" {% if form['T2w']=='T2w4' %}
                                                                                                                                 checked {% endif %}>
                                                                                                                             Linselnförmig hypointens T2w
                                                                                                                         </label>
@@ -414,6 +414,7 @@
                                                                                                     </div>
                                                                                                 </div>
                                                                                             </div>
+                                                                                        <!--
                                                                                             <div class="field is-horizontal">
                                                                                                     <div class="field-label">
                                                                                                         <label class="label">Weitere Angaben</label>
@@ -535,6 +536,7 @@
                                                                                                                 </div>
                                                                                                             </div>
                                                                                                         </div>
+                                                                                                        -->
 
                 <div class="field is-horizontal">
                     <div class="field-label">

@@ -1,158 +1,300 @@
 
 def create(form):
+
+    #date = form["date"]
+
+    if date == "********":
+        date = "Zum Vergleich leigen die Voraufnahmen vom ******** vor"
+    else date == "":
+        date = "Es liegen keine Voraufnahmen zum Vergleich vor"
+
+
+    artefakte = form.get("artefakte", "")
+    if artefakte == "on":
+        artefakte = "Eingeschränkte Beurteilbarkeit bei ausgeprägten Bewegungsartefakten."
+    else:
+        artefakte = ""
+
+    ap = int(form["ap"])
+    axial = int(form["axial"])
+    cc = int(form["cc"])
+    volumen = 0
+    volumen = ap*axial*cc*0.52
+
+    #Base rechts
+    AFSbaserechts = form.get("AFSbaserechts", "")
+    if AFSbaserechts == "on":
+        AFSbaserechts = "Prostatabasis anteriores fibromuskulares Stroma rechts"
+    else:
+        AFSbaserechts = ""
+
+    TZabaserechts = form.get("TZabaserechts", "")
+    if TZabaserechts == "on":
+        TZabaserechts = "Prostatabasis anteriore Transitionalzone rechts"
+    else:
+        TZabaserechts = ""
+
+    PZabaserechts = form.get("PZabaserechts", "")
+    if PZabaserechts == "on":
+        PZabaserechts = "Prostatabasis anteriore Peripherzone rechts"
+    else:
+        PZabaserechts = ""
+
+    TZpbaserechts = form.get("TZpbaserechts", "")
+    if TZpbaserechts == "on":
+        TZpbaserechts = "Prostatabasis posteriore Transitionalzone rechts"
+    else:
+        TZpbaserechts = ""
+    
+    PZpbaserechts = form.get("PZpbaserechts", "")
+    if PZpbaserechts == "on":
+        PZpbaserechts = "Prostatabasis posteriore Peripherzone rechts"
+    else:
+        PZpbaserechts = ""
+
+    CZbaserechts = form.get("CZbaserechts", "")
+    if CZbaserechts == "on":
+        CZbaserechts = "Prostatabasis posteriore Zentralzone rechts"
+    else:
+        CZbaserechts = ""
+
+    #Base links
+    AFSbaselinks = form.get("AFSbaselinks", "")
+    if AFSbaselinks == "on":
+        AFSbaselinks = "Prostatabasis anteriores fibromuskulares Stroma links"
+    else:
+        AFSbaselinks = ""
+
+    TZabaselinks = form.get("TZabaselinks", "")
+    if TZabaselinks == "on":
+        TZabaselinks = "Prostatabasis anteriore Transitionalzone links"
+    else:
+        TZabaselinks = ""
+
+    PZabaselinks = form.get("PZabaselinks", "")
+    if PZabaselinks == "on":
+        PZabaselinks = "Prostatabasis anteriore Peripherzone links"
+    else:
+        PZabaselinks = ""
+
+    TZpbaselinks = form.get("TZpbaselinks", "")
+    if TZpbaselinks == "on":
+        TZpbaselinks = "Prostatabasis posteriore Transitionalzone links"
+    else:
+        TZpbaselinks = ""
+    
+    PZpbaselinks = form.get("PZpbaselinks", "")
+    if PZpbaselinks == "on":
+        PZpbaselinks = "Prostatabasis posteriore Peripherzone links"
+    else:
+        PZpbaselinks = ""
+
+    CZbaselinks = form.get("CZbaselinks", "")
+    if CZbaselinks == "on":
+        CZbaselinks = "Prostatabasis posteriore Zentralzone links"
+    else:
+        CZbaselinks = ""
+
+    #Mid rechts
+    AFSmidrechts = form.get("AFSmidrechts", "")
+    if AFSmidrechts == "on":
+        AFSmidrechts = "Mittlere Prostata anteriores fibromuskulares Stroma rechts"
+    else:
+        AFSmidrechts = ""
+
+    TZamidrechts = form.get("TZamidrechts", "")
+    if TZamidrechts == "on":
+        TZamidrechts = "Mittlere Prostata anteriore Transitionalzone rechts"
+    else:
+        TZamidrechts = ""
+
+    PZamidrechts = form.get("PZamidrechts", "")
+    if PZamidrechts == "on":
+        PZamidrechts = "Mittlere Prostata anteriore Peripherzone rechts"
+    else:
+        PZamidrechts = ""
+
+    TZpmidrechts = form.get("TZpmidrechts", "")
+    if TZpmidrechts == "on":
+        TZpmidrechts = "Mittlere Prostata posteriore Transitionalzone rechts"
+    else:
+        TZpmidrechts = ""
+    
+    PZpmidrechts = form.get("PZpmidrechts", "")
+    if PZpmidrechts == "on":
+        PZpmidrechts = "Mittlere Prostata posteriore Peripherzone rechts"
+    else:
+        PZpmidrechts = ""
+
+    CZmidrechts = form.get("CZmidrechts", "")
+    if CZmidrechts == "on":
+        CZmidrechts = "Mittlere Prostata posteriore Zentralzone rechts"
+    else:
+        CZmidrechts = ""
+
+    #Mid links
+    AFSmidlinks = form.get("AFSmidlinks", "")
+    if AFSmidlinks == "on":
+        AFSmidlinks = "Mittlere Prostata anteriores fibromuskulares Stroma links"
+    else:
+        AFSmidlinks = ""
+
+    TZamidlinks = form.get("TZamidlinks", "")
+    if TZamidlinks == "on":
+        TZamidlinks = "Mittlere Prostata anteriore Transitionalzone links"
+    else:
+        TZamidlinks = ""
+
+    PZamidlinks = form.get("PZamidlinks", "")
+    if PZamidlinks == "on":
+        PZamidlinks = "Mittlere Prostata anteriore Peripherzone links"
+    else:
+        PZamidlinks = ""
+
+    TZpmidlinks = form.get("TZpmidlinks", "")
+    if TZpmidlinks == "on":
+        TZpmidlinks = "Mittlere Prostata posteriore Transitionalzone links"
+    else:
+        TZpmidlinks = ""
+    
+    PZpmidlinks = form.get("PZpmidlinks", "")
+    if PZpmidlinks == "on":
+        PZpmidlinks = "Mittlere Prostata posteriore Peripherzone links"
+    else:
+        PZpmidlinks = ""
+
+    CZmidlinks = form.get("CZmidlinks", "")
+    if CZmidlinks == "on":
+        CZmidlinks = "Mittlere Prostata posteriore Zentralzone links"
+    else:
+        CZmidlinks = ""
+
+    #Apex rechts
+    AFSapexrechts = form.get("AFSapexrechts", "")
+    if AFSapexrechts == "on":
+        AFSapexrechts = "Prostataapex anteriores fibromuskulares Stroma rechts"
+    else:
+        AFSapexrechts = ""
+
+    TZaapexrechts = form.get("TZaapexrechts", "")
+    if TZaapexrechts == "on":
+        TZaapexrechts = "Prostataapex anteriore Transitionalzone rechts"
+    else:
+        TZaapexrechts = ""
+
+    PZaapexrechts = form.get("PZaapexrechts", "")
+    if PZaapexrechts == "on":
+        PZaapexrechts = "Prostataapex anteriore Peripherzone rechts"
+    else:
+        PZaapexrechts = ""
+
+    TZpapexrechts = form.get("TZpapexrechts", "")
+    if TZpapexrechts == "on":
+        TZpapexrechts = "Prostataapex posteriore Transitionalzone rechts"
+    else:
+        TZpapexrechts = ""
+    
+    PZpapexrechts = form.get("PZpapexrechts", "")
+    if PZpapexrechts == "on":
+        PZpapexrechts = "Prostataapex posteriore Peripherzone rechts"
+    else:
+        PZpapexrechts = ""
+
+    CZapexrechts = form.get("CZapexrechts", "")
+    if CZapexrechts == "on":
+        CZapexrechts = "Prostataapex posteromedial Zentralzone rechts"
+    else:
+        CZapexrechts = ""
+
+    #Apex links
+    AFSapexlinks = form.get("AFSapexlinks", "")
+    if AFSapexlinks == "on":
+        AFSapexlinks = "Prostataapex anteriores fibromuskulares Stroma links"
+    else:
+        AFSapexlinks = ""
+
+    TZaapexlinks = form.get("TZaapexlinks", "")
+    if TZaapexlinks == "on":
+        TZaapexlinks = "Prostataapex anteriore Transitionalzone links"
+    else:
+        TZaapexlinks = ""
+
+    PZaapexlinks = form.get("PZaapexlinks", "")
+    if PZaapexlinks == "on":
+        PZaapexlinks = "Prostataapex anteriore Peripherzone links"
+    else:
+        PZaapexlinks = ""
+
+    TZpapexlinks = form.get("TZpapexlinks", "")
+    if TZpapexlinks == "on":
+        TZpapexlinks = "Prostataapex posteriore Transitionalzone links"
+    else:
+        TZpapexlinks = ""
+    
+    PZpapexlinks = form.get("PZpapexlinks", "")
+    if PZpapexlinks == "on":
+        PZpapexlinks = "Prostataapex posteriore Peripherzone links"
+    else:
+        PZpapexlinks = ""
+
+    CZapexlinks = form.get("CZapexlinks", "")
+    if CZapexlinks == "on":
+        CZapexlinks = "Prostataapex posteromedial Zentralzone links"
+    else:
+        CZapexlinks = ""
+
     txtDm = form["durchmesser"]
-    gl1 = form["gleason_x"]
-    gl2 = form["gleason_y"]
-    lkpos = form["lymphknoten_x"]
-    lkneg = form["lymphknoten_y"]
 
-    gls = 0
-
-    if gl1 == 3 and gl2 == 3:
-        isup = "1 "
-        gls = "6"
-    elif gl1 == 3 and gl2 == 4:
-        gls = "7"
-        isup = "2 "
-    elif gl1 == 4 and gl2 == 3:
-        isup = "3 "
-        gls = "7"
-    elif gl1 == 4 and gl2 == 4:
-        isup = "4 "
-        gls = "8"
-    elif gl1 == 5 and gl2 == 3:
-        isup = "4 "
-        gls = "8"
-    elif gl1 == 3 and gl2 == 5:
-        isup = "4 "
-        gls = "8"
+    ADC = form["ADC"]
+    if ADC == "ADC1":
+        ADC = ""
+    elif ADC == "ADC2":
+        ADC = "mit geringer Diffusionsrestriktion"
+    elif ADC == "ADC3":
+        ADC = "mit fokaler Diffusionsrestriktion"
     else:
-        isup = "5 "
-        gls = "9"
+        ADC = "mit flächiger Diffusionsrestriktion"
 
-    lappen = form["lappen"]
+    DWI = form["DWI"]
+    if DWI == "DWI1":
+        DWI = ""
+    else DWI == "DWI2":
+        DWI = "Undeutlich hyperintens in der DWI"
 
-    if lappen == "links":
-        lappen = ", im linken Prostatalappen"
-    elif lappen == "rechts":
-        lappen = ", im rechten Prostatalappen"
+    DWIMessung = form["DWIMessung"]
+
+    T2w = form["T2w"]
+    if T2w == "T2w1":
+        T2w = ""
+    elif T2w == "T2w2":
+        T2w = "Nodulär hypointens"
+    elif T2w == "T2w3":
+        T2w = "Unscharf hypointens"
     else:
-        lappen = ", in beiden Prostatalappen"
-
-
-    pn1 = form.get("perineuralscheideninfiltration", "")
-    pn2 = 0
-    if pn1 == "on":
-        pn1 = "Perineuralscheideninfiltration. "
-        pn2 = "Pn1, "
-    else:
-        pn1 = ""
-        pn2 = "Pn0, "
-
-
+        T2w = "Linsenförmig hypointens"
 
     sabla = form.get("tumorfreie_sabla", "")
     sablapt3b = 0
 
-    if sabla == "on":
-        sabla = "Tumorfreie Samenblase. "
-        sablapt3b = 0
-    else:
-        sabla = "Infiltration der Samenblase. "
-        sablapt3b = 1
+    #if sabla == "on":
+    #    sabla = "Tumorfreie Samenblase. "
+    #    sablapt3b = 0
+    #else:
+    #    sabla = "Infiltration der Samenblase. "
+    #    sablapt3b = 1
+#
+#
+    #ep = form.get("extraprostatisches_wachstum", "")
+    #ep1 = 0
+    #if ep == "on":
+    #    ep = "Extraprostatisches Wachstum. "
+    #    ep1 = 1
+    #else:
+    #    ep = "Kein Extraprostatisches Wachstum. "
+    #    ep1 = 0
+#
+    sentense1 = "Befund\n" + "\n\nProstatavolumen: " + str(ap) + " (ap) " + str(axial) + " (axial) " + str(cc) + " (cc) " \
+        + " = " + volumen + "(Normwert: < 30 ml).\n\nLäsionen\nLokalisation: " + AFSbaserechts + TZabaserechts + PZabaserechts + TZpbaserechts + PZpbaserechts + CZbaserechts + AFSbaselinks + TZabaselinks + PZabaselinks + TZpbaselinks + PZpbaselinks + CZbaselinks  + AFSmidrechts + TZamidrechts + PZamidrechts + TZpmidrechts + PZpmidrechts + CZmidrechts + AFSmidlinks + TZamidlinks + PZamidlinks + TZpmidlinks + PZpmidlinks + CZmidlinks + AFSapexrechts + TZaapexrechts + PZaapexrechts + TZpapexrechts + PZpapexrechts + CZapexrechts + AFSapexlinks + TZaapexlinks + PZaapexlinks + TZpapexlinks + PZpapexlinks + CZapexlinks\
+        + txtDm + ADC + ADCMessung + DWI + DWIMessung + T2w
 
-
-    ep = form.get("extraprostatisches_wachstum", "")
-    ep1 = 0
-    if ep == "on":
-        ep = "Extraprostatisches Wachstum. "
-        ep1 = 1
-    else:
-        ep = "Kein Extraprostatisches Wachstum. "
-        ep1 = 0
-
-
-    lymphangiosis = 0
-    hämangiosis = 0
-    lymphangiosis = form.get("lymphangiose", "")
-    hämangiosis = form.get("haengiose", "")
-    l1 = 0
-    v1 = 0
-    und1 = 0
-
-    if lymphangiosis == "on" and hämangiosis == "on":
-        und1 = "und "
-    else:
-        und1 = ""
-
-
-    if lymphangiosis == "on":
-        lymphangiosis1 = "Lymphangiosis "
-        l1 = "L1, "
-    else:
-        lymphangiosis1 = ""
-        l1 = "L0, "
-
-
-
-    if hämangiosis == "on":
-        hämangiosis1 = "Hämangiosis "
-        v1 = "V1, "
-    else:
-        hämangiosis1 = ""
-        v1 = "V0, "
-
-
-    ca = 0
-    if lymphangiosis == "on" or hämangiosis == "on":
-        ca = "carcinomatosa. "
-    else:
-        ca = ""
-
-    lkp = 0
-
-    if lkpos == 0:
-        lkp = "pN0"
-    else:
-        lkp = "pN1"
-
-
-    rr = form.get("rr_tumorfrei", "")
-    rro1 = 0
-
-    rrlok = form["rr_wo"]
-    rrmm = form["rr_strecke"]
-
-
-
-    if rr == 1:
-        rr = "Tumorfreie Resektionsränder. Minimaler Abstand zum Resektionsrand: " + str(rrmm) + "mm " + "(" + str(rrlok) + ")."
-        rro1 = "R0 (lokal)"
-    else:
-        rr = "Tumor bis in Resektionsrand " + str(rrlok) + "über eine Strecke von " + str(rrmm) + "."
-        rro1 = "R1"
-
-
-
-    pT = form["lappen"]
-    if pT == "links" or pT == "rechts":
-        pT = "pT2b"
-    elif pT == "beide":
-        pT = "pT2c"
-
-
-    if ep1 == "on": # extra wachstum
-        pT = "pT3a"
-    else:
-        pT
-
-    if sablapt3b == "on": # tumorfrei sabla
-        pT = "pT3b"
-    else:
-        pT
-
-    sentense1 = "Prostata (Ektomie):\nAdenokarzinom der Prostata, Gleason " + gls + " (" + str(gl1) + "+" + str(gl2) + "), WHO/ISUP Grad " + isup + "(maximaler Tumordurchmesser: " + str(txtDm) + " mm). " + pn1 + sabla + lymphangiosis1 + und1 + hämangiosis1 + ca + ep + rr
-
-    sentense2 = "Adenokarzinom der Prostata, Gleason " + gls + " (" + str(gl1) + "+" + str(gl2) + "), WHO/ISUP Grad " + isup + "(maximaler Tumordurchmesser: " + str(txtDm) + " mm). " + rr + "\n\nTNM-Klassifikation (8. Auflage, UICC):\n" + pT + ", " + lkp + "(" + str(lkpos) + "/" + str(lkneg) + "), " + l1 + v1 + pn2 + rro1
-
-    return sentense1, sentense2
+    return sentense1
