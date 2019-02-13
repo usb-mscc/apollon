@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 21.1.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 606 489" style="enable-background:new 0 0 606 489;" xml:space="preserve">
+<script xlink:href="/static/js/query_3.3.1.min.js"></script>
+
+<style type="text/css">
+	.st0{fill:#CCCCCC;}
+	.st1{fill:#4D4D4D;}
+	.st2{opacity:0.5;fill:none;stroke:#000000;stroke-miterlimit:10;}
+	.st3{fill:#B3B3B3;}
+	.st4{fill:#808080;}
+	.st5{fill:#999999;}
+	.st6{fill:#8C8C8C;}
+	.st7{fill:none;stroke:#FFFFFF;stroke-width:3;stroke-miterlimit:10;}
+	.st8{fill:none;stroke:#FFFFFF;stroke-width:3;stroke-miterlimit:10;stroke-dasharray:6.9388,6.9388;}
+	.st9{fill:none;stroke:#FFFFFF;stroke-width:3;stroke-miterlimit:10;stroke-dasharray:7;}
+	.st10{fill:none;stroke:#FFFFFF;stroke-width:3;stroke-miterlimit:10;stroke-dasharray:6.9023,6.9023;}
+	.st11{fill:none;}
+	.st12{font-family:'MyriadPro-Regular';}
+	.st13{font-size:30px;}
+	.st14{font-family:'MyriadPro-Bold';}
+	.st15{font-size:25px;}
+
+	.colorHovered{fill:#e5e5e5}
+	.colorSelected{fill:#33cccc !important}
+</style>
+<script type="text/javascript"><![CDATA[
+function enter(id) {
+    var area = document.getElementById(id);
+	if(!area.getAttribute("class").includes('colorSelected')){
+		area.setAttribute("class", 'colorHovered');
+	}
+}
+function leave(id, defaultClass) {
+    var area = document.getElementById(id);
+	if(!area.getAttribute("class").includes('colorSelected')){
+		area.setAttribute("class", defaultClass);
+	}
+}
+function click(id, defaultClass) {
+	var prevSelecteds = document.getElementsByClassName("colorSelected");
+	if(prevSelecteds.length > 0){
+		prevSelecteds[0].classList.remove('colorSelected');
+	}
+	window.parent.checkForm(id, 'checkBase');
+    var area = document.getElementById(id);
+	area.setAttribute("class", 'colorSelected ' + defaultClass);
+}
+]]></script>
+<g id="_x31_">
+	<path class="st0" id="CZbaserechts" onmouseover="enter('CZbaserechts', 'st0')" onmouseout="leave('CZbaserechts', 'st0')" onclick="click('CZbaserechts', 'st0')"
+	 d="M300,263v132c0,0,149.5,13.2,179-134c0,0-16.8,20.8-94.1,15.7c0,0-35.6-5.1-42.7-7.1
+		C335.1,267.6,300,263,300,263z"  />
+	<ellipse transform="matrix(0.8426 -0.5386 0.5386 0.8426 -111.2859 243.2809)" class="st1" cx="360.5" cy="312" rx="6.5" ry="9"/>
+	<path class="st4" id="AFSbaserechts" onmouseover="enter('AFSbaserechts', 'st4')" onmouseout="leave('AFSbaserechts', 'st4')" onclick="click('AFSbaserechts', 'st4')"
+		d="M302,118V46c0,0,140-11,225,89c0,0-37.5-5.5-33.5,41.5c0,0-32-92-115-80c0,0-48-1-67,56
+		C311.5,152.5,307.5,128.5,302,118z"/>
+	<path class="st5" id="PZabaserechts" onmouseover="enter('PZabaserechts', 'st5')" onmouseout="leave('PZabaserechts', 'st5')" onclick="click('PZabaserechts', 'st5')"
+		d="M501,223c0,0-4-44-9-45c0,0-4-47,35-43c0,0,41,39,42,96L501,223z"/>
+	<path class="st6" id="PZpbaserechts" onmouseover="enter('PZpbaserechts', 'st6')" onmouseout="leave('PZpbaserechts', 'st6')" onclick="click('PZpbaserechts', 'st6')"
+		d="M323,395c0,0,253,19,246-164l-67-8c0,0-4.5,27.5-24.5,39.5C477.5,262.5,466.5,382.5,323,395z"/>
+	<path class="st3" id="TZpbaserechts" onmouseover="enter('TZpbaserechts', 'st3')" onmouseout="leave('TZpbaserechts', 'st3')" onclick="click('TZpbaserechts', 'st3')"
+		d="M505,222.2c0,0-2,63-95.9,56.8c0,0-50-2.1-67.3-8.3c-17.3-6.2-39.8-6.2-39.8-6.2V215L505,222.2z"/>
+	<path class="st3" id="TZabaserechts" onmouseover="enter('TZabaserechts', 'st3')" onmouseout="leave('TZabaserechts', 'st3')" onclick="click('TZabaserechts', 'st3')"
+		d="M301,218.8c0,0-8.1-127.9,94.9-123.8S504,226,504,226S334.3,217.8,301,218.8z"/>
+	<path class="st0" id="CZbaselinks" onmouseover="enter('CZbaselinks', 'st0')" onmouseout="leave('CZbaselinks', 'st0')" onclick="click('CZbaselinks', 'st0')"
+		d="M303,263v132c0,0-148.7,13.2-178-134c0,0,16.7,20.8,93.6,15.7c0,0,35.4-5.1,42.5-7.1
+		C268.1,267.6,303,263,303,263z"/>
+	<ellipse transform="matrix(0.5386 -0.8426 0.8426 0.5386 -150.5279 349.1249)" class="st1" cx="243.5" cy="312" rx="9" ry="6.5"/>
+	<path class="st3" id="TZpbaselinks" onmouseover="enter('TZpbaselinks', 'st3')" onmouseout="leave('TZpbaselinks', 'st3')" onclick="click('TZpbaselinks', 'st3')" 
+		d="M100,221.3c0,0,2,63.9,95.4,57.6c0,0,49.7-2.1,67-8.4s39.6-6.3,39.6-6.3V214L100,221.3z"/>
+	<path class="st4" id="AFSbaselinks" onmouseover="enter('AFSbaselinks', 'st4')" onmouseout="leave('AFSbaselinks', 'st4')" onclick="click('AFSbaselinks', 'st4')"
+		d="M302,118V46c0,0-140-11-225,89c0,0,37.5-5.5,33.5,41.5c0,0,32-92,115-80c0,0,48-1,67,56
+		C292.5,152.5,296.5,128.5,302,118z"/>
+	<path class="st5" id="PZabaselinks" onmouseover="enter('PZabaselinks', 'st5')" onmouseout="leave('PZabaselinks', 'st5')" onclick="click('PZabaselinks', 'st5')"
+		 d="M103,223c0,0,4-44,9-45c0,0,4-47-35-43c0,0-41,39-42,96L103,223z"/>
+	<path class="st6" id="PZpbaselinks" onmouseover="enter('PZpbaselinks', 'st6')" onmouseout="leave('PZpbaselinks', 'st6')" onclick="click('PZpbaselinks', 'st6')"
+		d="M281,395c0,0-253,19-246-164l67-8c0,0,4.5,27.5,24.5,39.5C126.5,262.5,137.5,382.5,281,395z"/>
+	<path class="st3" id="TZabaselinks" onmouseover="enter('TZabaselinks', 'st3')" onmouseout="leave('TZabaselinks', 'st3')" onclick="click('TZabaselinks', 'st3')" 
+		d="M303,217.9c0,0,8.1-127-95.4-122.9C104.1,99.1,99,225,99,225S269.5,216.9,303,217.9z"/>
+	<g>
+		<g>
+			<line class="st7" x1="302" y1="47" x2="302" y2="50.5"/>
+			<line class="st8" x1="302" y1="57.4" x2="302" y2="387"/>
+			<line class="st7" x1="302" y1="390.5" x2="302" y2="394"/>
+		</g>
+	</g>
+	<path class="st1" d="M302.5,193c0,0-12.5-17-12.5-38s12.5-38,12.5-38s12.5,17,12.5,38S302.5,193,302.5,193z"/>
+	<path class="st9" d="M36.5,230.5c0,0,206-30,532,0"/>
+</g>
+<g id="_x32_">
+</g>
+<g id="_x33_">
+	<rect x="236" y="423" class="st11" width="136" height="40"/>
+	<text transform="matrix(1 0 0 1 271.9155 444.2998)" class="st12 st13">BASE</text>
+</g>
+<g id="Beschriftung">
+	<text transform="matrix(1 0 0 1 233.4854 82.6221)" class="st14 st15">AFS</text>
+	<text transform="matrix(1 0 0 1 188.835 173.6221)" class="st14 st15">TZ a</text>
+	<text transform="matrix(1 0 0 1 176.96 257.6221)" class="st14 st15">TZ p</text>
+	<text transform="matrix(1 0 0 1 219.373 359.6221)" class="st14 st15">CZ</text>
+	<text transform="matrix(1 0 0 1 355.373 359.6221)" class="st14 st15">CZ</text>
+	<text transform="matrix(1 0 0 1 489.5479 301.6221)" class="st14 st15">PZ p</text>
+	<text transform="matrix(1 0 0 1 68.5479 301.6221)" class="st14 st15">PZ p</text>
+	<text transform="matrix(1 0 0 1 51.4229 198.6221)" class="st14 st15">PZ a</text>
+	<text transform="matrix(1 0 0 1 504.4229 198.6221)" class="st14 st15">PZ a</text>
+	<text transform="matrix(1 0 0 1 368.835 173.6221)" class="st14 st15">TZ a</text>
+	<text transform="matrix(1 0 0 1 325.4854 82.6221)" class="st14 st15">AFS</text>
+	<text transform="matrix(1 0 0 1 378.96 257.6221)" class="st14 st15">TZ p</text>
+</g>
+</svg>

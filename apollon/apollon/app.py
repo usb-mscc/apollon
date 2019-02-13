@@ -9,10 +9,11 @@ from apollon.reports.prostate import create as prostate_create
 from apollon.reports.mamma import create as mamma_create
 from apollon.reports.colon import create as colon_create
 
-app = Flask(__name__, instance_relative_config=True)
+app = Flask(__name__, instance_relative_config=True, static_url_path='/static')
 app.config.from_object("apollon.default_config")
 app.config.from_pyfile("config.cfg", silent=True)
 version = app.config["VERSION"] = "0.0.1"
+app.config['DEBUG'] = True
 
 
 @app.route("/")

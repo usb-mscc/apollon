@@ -126,11 +126,11 @@ def create(form):
     else:
         PZpmidrechts = ""
 
-    CZmidrechts = form.get("CZmidrechts", "")
-    if CZmidrechts == "on":
-        CZmidrechts = "Mittlere Prostata posteriore Zentralzone rechts"
+    PZmmiderechts = form.get("PZmmiderechts", "")
+    if PZmmiderechts == "on":
+        PZmmiderechts = "Mittlere Prostata posteriore Zentralzone rechts"
     else:
-        CZmidrechts = ""
+        PZmmiderechts = ""
 
     #Mid links
     AFSmidlinks = form.get("AFSmidlinks", "")
@@ -163,11 +163,11 @@ def create(form):
     else:
         PZpmidlinks = ""
 
-    CZmidlinks = form.get("CZmidlinks", "")
-    if CZmidlinks == "on":
-        CZmidlinks = "Mittlere Prostata posteriore Zentralzone links"
+    PZmmidlinks = form.get("PZmmidlinks", "")
+    if PZmmidlinks == "on":
+        PZmmidlinks = "Mittlere Prostata posteriore Zentralzone links"
     else:
-        CZmidlinks = ""
+        PZmmidlinks = ""
 
     #Apex rechts
     AFSapexrechts = form.get("AFSapexrechts", "")
@@ -200,11 +200,11 @@ def create(form):
     else:
         PZpapexrechts = ""
 
-    CZapexrechts = form.get("CZapexrechts", "")
-    if CZapexrechts == "on":
-        CZapexrechts = "Prostataapex posteromedial Zentralzone rechts"
+    PZmapexrechts = form.get("PZmapexrechts", "")
+    if PZmapexrechts == "on":
+        PZmapexrechts = "Prostataapex posteromedial Zentralzone rechts"
     else:
-        CZapexrechts = ""
+        PZmapexrechts = ""
 
     #Apex links
     AFSapexlinks = form.get("AFSapexlinks", "")
@@ -237,11 +237,11 @@ def create(form):
     else:
         PZpapexlinks = ""
 
-    CZapexlinks = form.get("CZapexlinks", "")
-    if CZapexlinks == "on":
-        CZapexlinks = "Prostataapex posteromedial Zentralzone links"
+    PZmapexlinks = form.get("PZmapexlinks", "")
+    if PZmapexlinks == "on":
+        PZmapexlinks = "Prostataapex posteromedial Zentralzone links"
     else:
-        CZapexlinks = ""
+        PZmapexlinks = ""
 
     txtDm = form["durchmesser"]
 
@@ -294,7 +294,7 @@ def create(form):
     #    ep1 = 0
 #
     sentense1 = "Befund\n" + "\n\nProstatavolumen: " + str(ap) + " (ap) " + str(axial) + " (axial) " + str(cc) + " (cc) " \
-        + " = " + volumen + "(Normwert: < 30 ml).\n\nLäsionen\nLokalisation: " + AFSbaserechts + TZabaserechts + PZabaserechts + TZpbaserechts + PZpbaserechts + CZbaserechts + AFSbaselinks + TZabaselinks + PZabaselinks + TZpbaselinks + PZpbaselinks + CZbaselinks  + AFSmidrechts + TZamidrechts + PZamidrechts + TZpmidrechts + PZpmidrechts + CZmidrechts + AFSmidlinks + TZamidlinks + PZamidlinks + TZpmidlinks + PZpmidlinks + CZmidlinks + AFSapexrechts + TZaapexrechts + PZaapexrechts + TZpapexrechts + PZpapexrechts + CZapexrechts + AFSapexlinks + TZaapexlinks + PZaapexlinks + TZpapexlinks + PZpapexlinks + CZapexlinks\
+        + " = " + volumen + "(Normwert: < 30 ml).\n\nLäsionen\nLokalisation: " + AFSbaserechts + TZabaserechts + PZabaserechts + TZpbaserechts + PZpbaserechts + CZbaserechts + AFSbaselinks + TZabaselinks + PZabaselinks + TZpbaselinks + PZpbaselinks + CZbaselinks  + AFSmidrechts + TZamidrechts + PZamidrechts + TZpmidrechts + PZpmidrechts + PZmmiderechts + AFSmidlinks + TZamidlinks + PZamidlinks + TZpmidlinks + PZpmidlinks + PZmmidlinks + AFSapexrechts + TZaapexrechts + PZaapexrechts + TZpapexrechts + PZpapexrechts + PZmapexrechts + AFSapexlinks + TZaapexlinks + PZaapexlinks + TZpapexlinks + PZpapexlinks + PZmapexlinks\
         + txtDm + ADC + ADCMessung + DWI + DWIMessung + T2w
 
     return sentense1
