@@ -5,25 +5,25 @@
 <script xlink:href="/static/js/query_3.3.1.min.js"></script>
 
 <style type="text/css">
-	.st0{fill:#CCCCCC;}
-	.st1{fill:#4D4D4D;}
-	.st2{opacity:0.5;fill:none;stroke:#000000;stroke-miterlimit:10;}
-	.st3{fill:#B3B3B3;}
-	.st4{fill:#808080;}
-	.st5{fill:#999999;}
-	.st6{fill:#8C8C8C;}
-	.st7{fill:none;stroke:#FFFFFF;stroke-width:3;stroke-miterlimit:10;}
-	.st8{fill:none;stroke:#FFFFFF;stroke-width:3;stroke-miterlimit:10;stroke-dasharray:6.9388,6.9388;}
-	.st9{fill:none;stroke:#FFFFFF;stroke-width:3;stroke-miterlimit:10;stroke-dasharray:7;}
-	.st10{fill:none;stroke:#FFFFFF;stroke-width:3;stroke-miterlimit:10;stroke-dasharray:6.9023,6.9023;}
-	.st11{fill:none;}
+	.st0{fill:#CCCCCC;cursor: pointer;}
+	.st1{fill:#4D4D4D; cursor: pointer;}
+	.st2{opacity:0.5;fill:none;stroke:#000000;stroke-miterlimit:10;cursor: pointer;}
+	.st3{fill:#B3B3B3;cursor: pointer;}
+	.st4{fill:#808080;cursor: pointer;}
+	.st5{fill:#999999;cursor: pointer;}
+	.st6{fill:#8C8C8C;cursor: pointer;}
+	.st7{fill:none;stroke:#FFFFFF;stroke-width:3;stroke-miterlimit:10;cursor: pointer;}
+	.st8{fill:none;stroke:#FFFFFF;stroke-width:3;stroke-miterlimit:10;stroke-dasharray:6.9388,6.9388;cursor: pointer;}
+	.st9{fill:none;stroke:#FFFFFF;stroke-width:3;stroke-miterlimit:10;stroke-dasharray:7;cursor: pointer;}
+	.st10{fill:none;stroke:#FFFFFF;stroke-width:3;stroke-miterlimit:10;stroke-dasharray:6.9023,6.9023;cursor: pointer;}
+	.st11{fill:none;cursor: pointer;}
 	.st12{font-family:'MyriadPro-Regular';}
 	.st13{font-size:30px;}
-	.st14{font-family:'MyriadPro-Bold';}
-	.st15{font-size:25px;}
+	.st14{font-family:'MyriadPro-Bold';cursor: pointer;}
+	.st15{font-size:25px;cursor: pointer;}
 
-	.colorHovered{fill:#e5e5e5}
-	.colorSelected{fill:#33cccc !important}
+	.colorHovered{fill:#e5e5e5;cursor: pointer;}
+	.colorSelected{fill:#33cccc !important;cursor: pointer;}
 </style>
 <script type="text/javascript"><![CDATA[
 function enter(id) {
@@ -39,13 +39,14 @@ function leave(id, defaultClass) {
 	}
 }
 function click(id, defaultClass) {
-	var prevSelecteds = document.getElementsByClassName("colorSelected");
-	if(prevSelecteds.length > 0){
-		prevSelecteds[0].classList.remove('colorSelected');
+	var area =$('#' + id);
+	if(area.hasClass('colorSelected')){
+		window.parent.checkForm(id, 'checkBase', false);
+		area.removeClass('colorSelected');
+	} else {
+		window.parent.checkForm(id, 'checkBase', true);
+		area.addClass('colorSelected');
 	}
-	window.parent.checkForm(id, 'checkBase');
-    var area = document.getElementById(id);
-	area.setAttribute("class", 'colorSelected ' + defaultClass);
 }
 ]]></script>
 <g id="_x31_">
@@ -91,22 +92,18 @@ function click(id, defaultClass) {
 </g>
 <g id="_x32_">
 </g>
-<g id="_x33_">
-	<rect x="236" y="423" class="st11" width="136" height="40"/>
-	<text transform="matrix(1 0 0 1 271.9155 444.2998)" class="st12 st13">BASE</text>
-</g>
 <g id="Beschriftung">
-	<text transform="matrix(1 0 0 1 233.4854 82.6221)" class="st14 st15">AFS</text>
-	<text transform="matrix(1 0 0 1 188.835 173.6221)" class="st14 st15">TZ a</text>
-	<text transform="matrix(1 0 0 1 176.96 257.6221)" class="st14 st15">TZ p</text>
-	<text transform="matrix(1 0 0 1 219.373 359.6221)" class="st14 st15">CZ</text>
-	<text transform="matrix(1 0 0 1 355.373 359.6221)" class="st14 st15">CZ</text>
-	<text transform="matrix(1 0 0 1 489.5479 301.6221)" class="st14 st15">PZ p</text>
-	<text transform="matrix(1 0 0 1 68.5479 301.6221)" class="st14 st15">PZ p</text>
-	<text transform="matrix(1 0 0 1 51.4229 198.6221)" class="st14 st15">PZ a</text>
-	<text transform="matrix(1 0 0 1 504.4229 198.6221)" class="st14 st15">PZ a</text>
-	<text transform="matrix(1 0 0 1 368.835 173.6221)" class="st14 st15">TZ a</text>
-	<text transform="matrix(1 0 0 1 325.4854 82.6221)" class="st14 st15">AFS</text>
-	<text transform="matrix(1 0 0 1 378.96 257.6221)" class="st14 st15">TZ p</text>
+	<text transform="matrix(1 0 0 1 233.4854 82.6221)" class="st14 st15"  onclick="click('AFSbaselinks', 'st4')" onmouseover="enter('AFSbaselinks', 'st4')" onmouseout="leave('AFSbaselinks', 'st4')">AFS</text>
+	<text transform="matrix(1 0 0 1 188.835 173.6221)" class="st14 st15" onclick="click('TZabaselinks', 'st3')" onmouseover="enter('TZabaselinks', 'st3')" onmouseout="leave('TZabaselinks', 'st3')">TZ a</text>
+	<text transform="matrix(1 0 0 1 176.96 257.6221)" class="st14 st15" onclick="click('TZpbaselinks', 'st3')" onmouseover="enter('TZpbaselinks', 'st3')" onmouseout="leave('TZpbaselinks', 'st3')" >TZ p</text>
+	<text transform="matrix(1 0 0 1 219.373 359.6221)" class="st14 st15" onclick="click('CZbaselinks', 'st0')" onmouseover="enter('CZbaselinks', 'st0')" onmouseout="leave('CZbaselinks', 'st0')">CZ</text>
+	<text transform="matrix(1 0 0 1 355.373 359.6221)" class="st14 st15" onclick="click('CZbaserechts', 'st0')" onmouseover="enter('CZbaserechts', 'st0')" onmouseout="leave('CZbaserechts', 'st0')">CZ</text>
+	<text transform="matrix(1 0 0 1 489.5479 301.6221)" class="st14 st15" onclick="click('PZpbaserechts', 'st6')" onmouseover="enter('PZpbaserechts', 'st6')" onmouseout="leave('PZpbaserechts', 'st6')">PZ p</text>
+	<text transform="matrix(1 0 0 1 68.5479 301.6221)" class="st14 st15"  onclick="click('PZpbaselinks', 'st6')" onmouseover="enter('PZpbaselinks', 'st6')" onmouseout="leave('PZpbaselinks', 'st6')">PZ p</text>
+	<text transform="matrix(1 0 0 1 51.4229 198.6221)" class="st14 st15" onclick="click('PZabaselinks', 'st5')" onmouseover="enter('PZabaselinks', 'st5')" onmouseout="leave('PZabaselinks', 'st5')">PZ a</text>
+	<text transform="matrix(1 0 0 1 504.4229 198.6221)" class="st14 st15" onclick="click('PZabaserechts', 'st5')" onmouseover="enter('PZabaserechts', 'st5')" onmouseout="leave('PZabaserechts', 'st5')">PZ a</text>
+	<text transform="matrix(1 0 0 1 368.835 173.6221)" class="st14 st15" onclick="click('TZabaserechts', 'st3')" onmouseover="enter('TZabaserechts', 'st3')" onmouseout="leave('TZabaserechts', 'st3')">TZ a</text>
+	<text transform="matrix(1 0 0 1 325.4854 82.6221)" class="st14 st15" onclick="click('AFSbaserechts', 'st4')" onmouseover="enter('AFSbaserechts', 'st4')" onmouseout="leave('AFSbaserechts', 'st4')">AFS</text>
+	<text transform="matrix(1 0 0 1 378.96 257.6221)" class="st14 st15" onclick="click('TZpbaserechts', 'st3')" onmouseover="enter('TZpbaserechts', 'st3')" onmouseout="leave('TZpbaserechts', 'st3')">TZ p</text>
 </g>
 </svg>

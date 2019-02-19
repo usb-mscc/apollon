@@ -20,82 +20,10 @@
             <p class="subtitle">smart reporting</p>
         </div>
         <div class="section container">
-            <h1 class="title">MRI Prostata</h1>
+            <h1 class="title">Patho Prostata</h1>
             <form class="form-horizontal" action="/generate" method="POST">
                 <input type="hidden" value="MRProstate" name="report_type">
-                <div class="field is-horizontal">
-                    <div class="field-label is-normal">
-                        <label class="label">Voraufnahmen</label>
-                    </div>
-                    <div class="field-body">
-                        <div class="field">
-                            <div class="control">
-                                <input class="input" type="date" name="date" value="{{form['date']}}">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="field is-horizontal">
-                    <div class="field-label">
-                        <label class="label">Artefakte</label>
-                    </div>
-                    <div class="field-body">
-                        <div class="field">
-                            <div class="control">
-                                <label class="checkbox">
-                                    <input type="checkbox" name="artefakte" {% if form['artefakte'] %} checked {%
-                                                endif %}>
-                                </label>
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="field is-horizontal">
-                    <div class="field-label">
-                        <label class="label">Postinterventionelle Veränderungen</label>
-                    </div>
-                    <div class="field-body">
-                        <div class="field">
-                            <div class="control">
-                                <label class="checkbox">
-                                    <input type="checkbox" name="Postinterventionell"
-                                        {% if form['Postinterventionell'] %} checked {%
-                                                endif %}>
-                                </label>
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="field is-horizontal">
-                    <div class="field-label is-normal">
-                        <label class="label">Volumen</label>
-                    </div>
-                    <div class="field-body">
-                        <div class="field">
-                            <div class="control">
-                                <input class="input" type="number" placeholder="ap (cm)" name="ap"
-                                    value="{{form['ap']}}">
-                            </div>
-                        </div>
-                        <div class="field">
-                            <div class="control">
-                                <input class="input" type="number" placeholder="axial (cm)" name="axial"
-                                    value="{{form['axial']}}">
-                            </div>
-                        </div>
-                        <div class="field">
-                            <div class="control">
-                                <input class="input" type="number" placeholder="cc (cm)" name="cc"
-                                    value="{{form['cc']}}">
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                
 
                 <h1 class="title">1. Läsion</h1>
 
@@ -339,14 +267,14 @@
                     <div class="field-body">
                         <div class="field">
                             <div class="control">
-                                <input class="input" type="number" placeholder="Serie" name="serie"
-                                    value="{{form['serie']}}">
+                                <input class="input" type="number" placeholder="B-Nummer" name="B-Nummer"
+                                    value="{{form['B-Nummer']}}">
                             </div>
                         </div>
                         <div class="field">
                             <div class="control">
-                                <input class="input" type="number" placeholder="Image" name="image"
-                                    value="{{form['image']}}">
+                                <input class="input" type="number" placeholder="Block" name="Block"
+                                    value="{{form['Block']}}">
                             </div>
                         </div>
                     </div>
@@ -367,31 +295,35 @@
                 </div>
 
                 <div class="field is-horizontal">
-                    <div class="field-label">
-                        <label class="label">ADC</label>
+                    <div class="field-label is-normal">
+                        <label class="label">Gleason</label>
                     </div>
                     <div class="field-body">
-                        <div class="field is-narrow">
+                        <div class="field">
                             <div class="control">
-                                <label class="radio">
-                                    <input type="radio" name="ADC" value="ADC1" {% if form['ADC']=='ADC1' %} checked
-                                        {% endif %}>
-                                    Normal ADC1
-                                </label>
-                                <label class="radio">
-                                    <input type="radio" name="ADC" value="ADC2" {% if form['ADC']=='ADC2' %} checked
-                                        {% endif %}>
-                                    Geringe Diffusionsrestriktion ADC2
-                                </label>
-                                <label class="radio">
-                                    <input type="radio" name="ADC" value="ADC3" {% if form['ADC']=='ADC3' %} checked
-                                        {% endif %}>
-                                    Fokale Diffusionsrestriktion ADC3
-                                </label>
-                                <label class="radio">
-                                    <input type="radio" name="ADC" value="ADC4" {% if form['ADC']=='ADC4' %} checked
-                                        {% endif %}>
-                                    Flächiger Diffusionsrestriktion ADC4
+                                <input class="input" type="number" placeholder="Häufigste" name="Häufigste"
+                                    value="{{form['Häufigste']}}">
+                            </div>
+                        </div>
+                        <div class="field">
+                            <div class="control">
+                                <input class="input" type="number" placeholder="2. Häufigste" name="2. Häufigste"
+                                    value="{{form['2. Häufigste']}}">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="field is-horizontal">
+                    <div class="field-label">
+                        <label class="label">Tumor im RR</label>
+                    </div>
+                    <div class="field-body">
+                        <div class="field">
+                            <div class="control">
+                                <label class="checkbox">
+                                    <input type="checkbox" name="R1" {% if form['R1'] %} checked {%
+                                        endif %}>
+                                    
                                 </label>
                             </div>
                         </div>
@@ -399,80 +331,19 @@
                 </div>
                 <div class="field is-horizontal">
                     <div class="field-label is-normal">
-                        <label class="label">ADCMessung</label>
+                        <label class="label">Abstand RR</label>
                     </div>
                     <div class="field-body">
                         <div class="field">
                             <div class="control">
-                                <input class="input" type="number" placeholder="mm2/s" name="ADCMessung"
-                                    value="{{form['ADCMessung']}}">
+                                <input class="input" type="number" placeholder="mm" name="mm"
+                                    value="{{form['mm']}}">
                             </div>
                         </div>
-                    </div>
-                </div>
-
-                <div class="field is-horizontal">
-                    <div class="field-label">
-                        <label class="label">DWI</label>
-                    </div>
-                    <div class="field-body">
-                        <div class="field is-narrow">
-                            <div class="control">
-                                <label class="radio">
-                                    <input type="radio" name="DWI" value="DWI1" {% if form['DWI']=='DWI1' %} checked
-                                        {% endif %}>
-                                    Normal DWI1
-                                </label>
-                                <label class="radio">
-                                    <input type="radio" name="DWI" value="DWI2" {% if form['DWI']=='DWI2' %} checked
-                                        {% endif %}>
-                                    Undeutlich hyperintens DWI2
-                                </label>
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="field is-horizontal">
-                    <div class="field-label is-normal">
-                        <label class="label">DWIMessung</label>
-                    </div>
-                    <div class="field-body">
                         <div class="field">
                             <div class="control">
-                                <input class="input" type="number" placeholder="mm2/s" name="DWIMessung"
-                                    value="{{form['DWIMessung']}}">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="field is-horizontal">
-                    <div class="field-label">
-                        <label class="label">T2w</label>
-                    </div>
-                    <div class="field-body">
-                        <div class="field is-narrow">
-                            <div class="control">
-                                <label class="radio">
-                                    <input type="radio" name="T2w" value="T2w1" {% if form['T2w']=='T2w1' %} checked
-                                        {% endif %}>
-                                    Normale T2w
-                                </label>
-                                <label class="radio">
-                                    <input type="radio" name="T2w" value="T2w2" {% if form['T2w']=='T2w2' %} checked
-                                        {% endif %}>
-                                    Nodulär hypointense T2w
-                                </label>
-                                <label class="radio">
-                                    <input type="radio" name="T2w" value="T2w3" {% if form['T2w']=='T2w3' %} checked
-                                        {% endif %}>
-                                    Unscharf hypointense T2w
-                                </label>
-                                <label class="radio">
-                                    <input type="radio" name="T2w" value="T2w4" {% if form['T2w']=='T2w4' %} checked
-                                        {% endif %}>
-                                    Linselnförmig hypointens T2w
-                                </label>
+                                <input class="input" type="number" placeholder="dorsolateral rechts" name="Lokalisation"
+                                    value="{{form['Lokalisation']}}">
                             </div>
                         </div>
                     </div>
@@ -500,19 +371,12 @@
                                                                                                                                 endif %}>
                                                                                                                             Samenblase infiltriert
                                                                                                                         </label>
-                                                                                                                        <label class="checkbox">
-                                                                                                                                <input type="checkbox" name="Knochen" {% if form['Knochen'] %} checked {%
-                                                                                                                                    endif %}>
-                                                                                                                                Knochen infiltriert
-                                                                                                                            </label>
+                                                                                                                        
                                                                                                             </div>
                                                                                                         </div>
                                                                                                     </div>
                                                                                                 </div>
-                                                                                                <div class="svgContainer">
-                                                                                                    <label class="label">Lymphknoten</label>
-                                                                                                    <embed src="/static/images/lymphnode.svg" type="image/svg+xml" />
-                                                                                                </div>
+                                                                                                <h1 class="title">Lymphknoten</h1>
                                                                                                 <div class="field is-horizontal">
                                                                                                         <div class="field-label">
                                                                                                             <label class="label">Stationen</label>
@@ -521,70 +385,21 @@
                                                                                                             <div class="field">
                                                                                                                 <div class="control">
                                                                                                                     <label class="checkbox">
-                                                                                                                        <input type="checkbox" name="LKaortalr" {% if form['LKaortalr'] %} checked {%
+                                                                                                                        <input type="checkbox" name="LKilicalr" {% if form['LKilicalr'] %} checked {%
                                                                                                                             endif %}>
-                                                                                                                        Aortal rechts
+                                                                                                                        Iliacal rechts
                                                                                                                     </label>
                                                                                                                     <label class="checkbox">
-                                                                                                                            <input type="checkbox" name="LKaortall" {% if form['LKaortall'] %} checked {%
+                                                                                                                            <input type="checkbox" name="LKiliacall" {% if form['LKiliacall'] %} checked {%
                                                                                                                                 endif %}>
-                                                                                                                            Aortal links
+                                                                                                                            Iliacal links
                                                                                                                         </label>
                                                                                                                         <label class="checkbox">
-                                                                                                                                <input type="checkbox" name="LKiliacacomr" {% if form['LKiliacacomr'] %} checked {%
+                                                                                                                                <input type="checkbox" name="Präprostatisch" {% if form['Präprostatisch'] %} checked {%
                                                                                                                                     endif %}>
-                                                                                                                                Iliaca communis rechts
+                                                                                                                                Präprostatisch
                                                                                                                             </label>
-                                                                                                                            <label class="checkbox">
-                                                                                                                                    <input type="checkbox" name="LKiliacacoml" {% if form['LKiliacacoml'] %} checked {%
-                                                                                                                                        endif %}>
-                                                                                                                                        Iliaca communis links
-                                                                                                                                </label>
-                                                                                                                                <label class="checkbox">
-                                                                                                                                        <input type="checkbox" name="LKiliacaexr" {% if form['LKiliacaexr'] %} checked {%
-                                                                                                                                            endif %}>
-                                                                                                                                        Iliaca externa rechts
-                                                                                                                                    </label>
-                                                                                                                                    <label class="checkbox">
-                                                                                                                                            <input type="checkbox" name="LKiliacaexl" {% if form['LKiliacaexl'] %} checked {%
-                                                                                                                                                endif %}>
-                                                                                                                                                Iliaca externa links
-                                                                                                                                        </label>
-                                                                                                                                        <label class="checkbox">
-                                                                                                                                                <input type="checkbox" name="LKiliacainr" {% if form['LKiliacainr'] %} checked {%
-                                                                                                                                                    endif %}>
-                                                                                                                                                Iliaca interna rechts
-                                                                                                                                            </label>
-                                                                                                                                            <label class="checkbox">
-                                                                                                                                                    <input type="checkbox" name="LKiliacainl" {% if form['LKiliacainl'] %} checked {%
-                                                                                                                                                        endif %}>
-                                                                                                                                                        Iliaca interna links
-                                                                                                                                                </label>
-                                                                                                                                                <label class="checkbox">
-                                                                                                                                                        <input type="checkbox" name="LKinguinalr" {% if form['LKinguinalr'] %} checked {%
-                                                                                                                                                            endif %}>
-                                                                                                                                                        Inguinal rechts
-                                                                                                                                                    </label>
-                                                                                                                                                    <label class="checkbox">
-                                                                                                                                                            <input type="checkbox" name="LKinguinall" {% if form['LKinguinall'] %} checked {%
-                                                                                                                                                                endif %}>
-                                                                                                                                                                Inguinal links
-                                                                                                                                                        </label>
-                                                                                                                                                        <label class="checkbox">
-                                                                                                                                                                <input type="checkbox" name="LKfemoralr" {% if form['LKfemoralr'] %} checked {%
-                                                                                                                                                                    endif %}>
-                                                                                                                                                                Femoral rechts
-                                                                                                                                                            </label>
-                                                                                                                                                            <label class="checkbox">
-                                                                                                                                                                    <input type="checkbox" name="LKfemorall" {% if form['LKfemorall'] %} checked {%
-                                                                                                                                                                        endif %}>
-                                                                                                                                                                        Femoral links
-                                                                                                                                                                </label>
-                                                                                                                                                                <label class="checkbox">
-                                                                                                                                                                        <input type="checkbox" name="LKsakral" {% if form['LKsakral'] %} checked {%
-                                                                                                                                                                            endif %}>
-                                                                                                                                                                            Präsakral links
-                                                                                                                                                                    </label>
+                                                                                                                            
                                                                                                                 </div>
                                                                                                             </div>
                                                                                                         </div>

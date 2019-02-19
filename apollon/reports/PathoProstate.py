@@ -283,7 +283,7 @@ def create(form):
     #    ep1 = 0
 
     sentense1 = "Befund\n" + date1 + "\n\n" + artefakte + Postinterventionell + "\n\nProstatavolumen: " + str(ap) + " cm (ap) " + str(axial) + " cm (axial) " + str(cc) + " cm (cc)" \
-        + " = " + str(volumen) + "  (Normwert: < 30 ml).\n\nLäsion (PIRADS "+ str(PIRADSP) + str(PIRADSZ) + ")\nLokalisation: " + Lokalisation + "(Serie " + str(serie) + "/ Image " + str(image) + "). \nMorphologie: " + str(txtDm) + " mm Durchmesser. " \
+        + " = " + str(volumen) + "  (Normwert: < 30 ml).\n\nLäsion (PIRADS "+ str(PIRADSP) + str(PIRADSZ) + ")\nLokalisation: " + Lokalisation + "(Serie " + str(serie) + "/ Image " + str(image) + "). \nMorphologie: " + str(txtDm) + " mm Durchmesser. Signalverhalten: " \
         + ADC + DWI + T2w
 
     sentense2 =""
